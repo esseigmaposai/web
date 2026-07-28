@@ -350,11 +350,11 @@
   details[open]{border-color:var(--sky)}
   summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
   summary::-webkit-details-marker{display:none}
-  summary .plus{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);position:relative;transition:transform .3s,background .3s,color .3s,border-color .3s;color:var(--navy)}
+  summary .plus{flex:none;width:22px;height:22px;position:relative;transition:transform .3s,color .3s;color:var(--navy)}
   summary .plus::before,summary .plus::after{content:"";position:absolute;top:50%;left:50%;background:currentColor;border-radius:2px}
-  summary .plus::before{width:11px;height:2.2px;transform:translate(-50%,-50%)}
-  summary .plus::after{width:2.2px;height:11px;transform:translate(-50%,-50%)}
-  details[open] summary .plus{transform:rotate(45deg);background:var(--navy);color:#fff;border-color:var(--navy)}
+  summary .plus::before{width:15px;height:2.4px;transform:translate(-50%,-50%)}
+  summary .plus::after{width:2.4px;height:15px;transform:translate(-50%,-50%)}
+  details[open] summary .plus{transform:rotate(45deg);color:var(--sub)}
   details p{color:var(--sub);padding:0 0 20px;font-size:.94rem}
 
   /* ---------- CTA ---------- */
