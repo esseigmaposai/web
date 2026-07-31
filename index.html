@@ -193,7 +193,7 @@
   .sales-card{margin:10px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 14px;box-shadow:var(--shadow-s);display:flex;align-items:center;gap:6px}
   .sales-card .st{flex:1;min-width:0}
   .sales-card .lbl{font-size:.6rem;letter-spacing:.1em;font-weight:800;color:var(--ink);text-transform:uppercase}
-  .sales-card .amt{font-family:var(--display);font-weight:800;font-size:1.4rem;color:var(--navy-deep);margin-top:2px;border-bottom:2px solid var(--ink);display:inline-block;line-height:1.35}
+  .sales-card .amt{font-family:var(--display);font-weight:800;font-size:1.4rem;color:#111;margin-top:2px;border-bottom:2px solid currentColor;display:inline-block;line-height:1.35}
   .sales-card .subl{font-size:.63rem;font-weight:700;color:var(--sub);margin-top:6px}
   .sales-card .subl b{color:var(--green);border-bottom:1.5px solid var(--green)}
   .sales-card .txl{display:flex;align-items:center;gap:5px;font-size:.6rem;font-weight:700;color:var(--ink);margin-top:5px}
@@ -679,10 +679,10 @@
         <p class="tagline">"Langkah awal digitalisasi bisnis tanpa biaya."</p>
         <div class="price"><span class="now">Rp 0</span> <span class="per">/ bulan</span></div>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Pencatatan transaksi digital (100/bulan)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Manajemen stok hingga 30 item</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Pencatatan transaksi digital (30/bulan)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Manajemen stok hingga 15 item</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Kirim struk virtual</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Fitur tagihan (maks. 10 data)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Riwayat penjualan 7 hari terakhir</li>
         </ul>
         <a href="#unduh" class="btn btn-ghost">Mulai Gratis</a>
       </div>
@@ -703,6 +703,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Analitik laba real-time</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Transaksi &amp; stok tanpa batas</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Cetak struk Bluetooth &amp; virtual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Riwayat penuh + tagihan supplier tanpa batas</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Multi-staf hingga 5 orang</li>
         </ul>
         <a href="#unduh" class="btn btn-primary">Coba Gratis 14 Hari</a>
@@ -718,7 +719,7 @@
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Semua fitur di paket Pro</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Multi-staf tanpa batas</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Akses 3 komputer + 1 ponsel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Manajemen multi cabang / outlet</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Backup data otomatis</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Priority support</li>
         </ul>
@@ -859,5 +860,735 @@
     cio.observe(counter);
   }
 </script>
+<!-- ===== Esseigma: Coming-soon popup + Demo overlay (disisipkan otomatis) ===== -->
+<style>
+  .es-modal-back,.es-demo-back{position:fixed;inset:0;z-index:9998;display:flex;opacity:0;transition:opacity .28s ease}
+  .es-modal-back{background:rgba(10,20,44,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:22px}
+  .es-modal-back.show,.es-demo-back.show{opacity:1}
+  .es-modal-back[hidden],.es-demo-back[hidden]{display:none}
+  .es-modal{background:#fff;border-radius:22px;max-width:400px;width:100%;padding:34px 30px 24px;text-align:center;position:relative;
+    box-shadow:0 30px 70px -20px rgba(0,30,90,.5);transform:translateY(16px) scale(.97);transition:transform .3s ease}
+  .es-modal-back.show .es-modal{transform:none}
+  .es-x{position:absolute;top:12px;right:14px;border:0;background:transparent;font-size:26px;line-height:1;color:var(--sub);cursor:pointer;padding:4px}
+  .es-badge{width:66px;height:66px;margin:0 auto 15px;border-radius:20px;display:grid;place-items:center;font-size:32px;
+    background:linear-gradient(150deg,var(--sky),#eaf1fc);box-shadow:0 10px 24px -12px rgba(0,56,132,.4)}
+  .es-modal h3{font-family:var(--display);font-weight:800;font-size:1.4rem;color:var(--ink);margin:0 0 10px;line-height:1.2}
+  .es-modal p{color:var(--sub);font-size:.95rem;line-height:1.6;margin:0 0 22px}
+  .es-see-demo{width:100%;justify-content:center;font-size:1rem}
+  .es-see-demo::before{content:"▶";font-size:.8em;margin-right:8px}
+  .es-caption{font-size:.82rem;color:var(--sub);margin:14px 0 2px;font-weight:600}
+  .es-link{display:inline-block;margin-top:6px;border:0;background:transparent;color:var(--sub);font-weight:600;font-size:.86rem;cursor:pointer;text-decoration:underline}
+  /* demo overlay */
+  .es-demo-back{background:radial-gradient(1200px 800px at 50% -10%,#083069,#02132e);flex-direction:column}
+  .es-demo-head{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;color:#eaf1ff;flex:none}
+  .es-demo-ttl{font-weight:700;font-size:.92rem;letter-spacing:.02em;display:flex;align-items:center;gap:9px}
+  .es-demo-ttl .dot{width:8px;height:8px;border-radius:50%;background:#34d17f;box-shadow:0 0 10px #34d17f}
+  .es-demo-x{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;width:40px;height:40px;border-radius:50%;
+    font-size:22px;line-height:1;cursor:pointer;transition:background .2s}
+  .es-demo-x:hover{background:rgba(255,255,255,.22)}
+  #esDemoFrame{flex:1;width:100%;border:0;background:transparent}
+</style>
+
+<div class="es-modal-back" id="esComingSoon" hidden>
+  <div class="es-modal" role="dialog" aria-modal="true" aria-labelledby="esCsTitle">
+    <button class="es-x" data-es-close aria-label="Tutup">&times;</button>
+    <div class="es-badge">📱</div>
+    <h3 id="esCsTitle">Aplikasi Android Segera Hadir!</h3>
+    <p>Esseigma POS AI sedang kami finalisasi untuk rilis di Google Play Store. Sementara itu, yuk lihat langsung tampilan &amp; fiturnya lewat demo interaktif.</p>
+    <button class="btn btn-primary es-see-demo" id="esSeeDemo">Lihat Demo Aplikasi</button>
+    <div class="es-caption">Gratis dijelajahi, tanpa perlu instal apa pun</div>
+    <button class="es-link" data-es-close>Nanti saja</button>
+  </div>
+</div>
+
+<div class="es-demo-back" id="esDemoOverlay" hidden>
+  <div class="es-demo-head">
+    <span class="es-demo-ttl"><span class="dot"></span>Demo Interaktif · Esseigma POS AI</span>
+    <button class="es-demo-x" data-es-democlose aria-label="Tutup demo">&times;</button>
+  </div>
+  <iframe id="esDemoFrame" title="Demo Esseigma POS AI"></iframe>
+</div>
+
+<script>
+(function(){
+  var ES_DEMO_HTML = `<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Esseigma — Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#003884; --navy-deep:#002460; --sky:#C2D7FF; --sky-soft:#E4ECF9; --paper:#F6F9FE;
+    --ink:#141b2e; --sub:#5b6b81; --line:#dce6f5; --gold:#E9B10A; --gold-soft:#FDF3D0;
+    --green:#1f9d57; --red:#e23b34; --pink:#fdeceb; --frame:#101012; --white:#fff;
+    --box:#F2C230; --box-dk:#C99A16; --purple:#8C52FF;
+    --display:"Playfair Display",Georgia,serif;
+    --body:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+    --shadow-s:0 2px 8px rgba(0,32,90,.06); --shadow-m:0 12px 30px rgba(0,32,90,.10); --shadow-l:0 30px 70px rgba(0,32,90,.30);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--body);color:#eaf1ff;min-height:100dvh;overflow-x:hidden;
+    background:radial-gradient(1100px 700px at 80% -8%,rgba(94,164,235,.32),transparent 60%),
+      radial-gradient(900px 700px at 6% 110%,rgba(24,86,180,.4),transparent 60%),
+      linear-gradient(160deg,#02132e 0%,#062a63 55%,#041d47 100%);
+    display:flex;flex-direction:column;align-items:center;padding:clamp(16px,4vw,40px) 16px;
+  }
+  .orb{position:fixed;border-radius:50%;filter:blur(42px);opacity:.5;z-index:0;pointer-events:none;animation:float 15s ease-in-out infinite}
+  .orb.o1{width:300px;height:300px;background:#1a5fd0;top:-60px;right:-40px}
+  .orb.o2{width:260px;height:260px;background:#0b8a5e;bottom:-40px;left:-60px;animation-delay:-6s}
+  @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,-22px)}}
+
+  .stage{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px}
+  .phone{position:relative;width:300px;background:var(--frame);border-radius:44px;padding:12px;box-shadow:var(--shadow-l),inset 0 0 0 2px #2a2a30}
+  .screen{position:relative;border-radius:34px;overflow:hidden;height:600px;background:linear-gradient(180deg,var(--sky) 0%,var(--sky-soft) 22%,#fff 55%)}
+
+  .segbar{position:absolute;top:0;left:0;right:0;height:4px;display:flex;gap:2px;padding:6px 12px 0;z-index:60}
+  .seg{flex:1;height:3px;border-radius:2px;background:rgba(0,36,96,.16);overflow:hidden}
+  .seg i{display:block;height:100%;width:0;background:var(--navy);border-radius:2px} .seg.done i{width:100%}
+
+  .statusbar{position:absolute;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:14px 22px 4px;font-size:.72rem;font-weight:700}
+  .statusbar.dark{color:var(--navy-deep)} .statusbar.light{color:#fff}
+  .statusbar .island{position:absolute;left:50%;top:12px;transform:translateX(-50%);width:78px;height:21px;background:var(--frame);border-radius:100px;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+  .statusbar .island::after{content:"";position:absolute;right:12px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:#1c2740;box-shadow:inset 0 0 0 1.5px rgba(120,150,210,.4)}
+  .statusbar .stat{display:inline-flex;align-items:center;gap:5px} .statusbar .stat svg{height:11px;width:auto;display:block;color:currentColor}
+
+  .screens{position:absolute;inset:0}
+  .scene{position:absolute;inset:0;opacity:0;visibility:hidden;overflow:hidden;transition:opacity .5s ease,transform .5s ease;transform:translateY(6px) scale(.995);background:linear-gradient(180deg,var(--sky) 0%,var(--sky-soft) 22%,#fff 55%)}
+  .scene.active{opacity:1;visibility:visible;transform:none}
+
+  .scene.play .st{opacity:0;transform:translateY(13px);animation:rise .5s forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .scene.play .st.d1{animation-delay:.10s}.scene.play .st.d2{animation-delay:.20s}.scene.play .st.d3{animation-delay:.30s}
+  .scene.play .st.d4{animation-delay:.40s}.scene.play .st.d5{animation-delay:.50s}.scene.play .st.d6{animation-delay:.60s}
+  .tap{position:absolute;width:34px;height:34px;border-radius:50%;border:2px solid rgba(0,56,132,.55);background:rgba(0,56,132,.12);z-index:25;opacity:0;pointer-events:none}
+  .scene.play .tap.go{animation:tap 1.1s forwards}
+  @keyframes tap{0%{opacity:0;transform:scale(1.4)}30%{opacity:1;transform:scale(1)}55%{transform:scale(.82)}80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.2)}}
+
+  /* ===== BERANDA ===== */
+  .greet{padding:34px 16px 2px;text-align:right}
+  .greet .hi{font-family:var(--display);font-weight:800;font-size:1rem;color:var(--ink);letter-spacing:-.01em;line-height:1.15}
+  .greet .date{font-size:.63rem;color:var(--sub);font-weight:600;margin-top:2px}
+  .sales-card{margin:9px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow-s);display:flex;align-items:center;gap:6px}
+  .sales-card .col{flex:1;min-width:0}
+  .sales-card .lbl{font-size:.58rem;letter-spacing:.1em;font-weight:800;color:var(--ink);text-transform:uppercase}
+  .sales-card .amt{font-family:var(--display);font-weight:800;font-size:1.32rem;color:#111;margin-top:2px;border-bottom:2px solid currentColor;display:inline-block;line-height:1.3}
+  .sales-card .subl{font-size:.6rem;font-weight:700;color:var(--sub);margin-top:6px}
+  .sales-card .subl b{color:var(--green);border-bottom:1.5px solid var(--green)}
+  .sales-card .txl{display:flex;align-items:center;gap:5px;font-size:.58rem;font-weight:700;color:var(--ink);margin-top:5px}
+  .sales-card .txl svg{width:12px;height:12px;color:var(--navy)}
+  .arrow-up{flex:none;width:50px;height:46px}
+  .menu-grid{margin:2px 12px;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 6px;box-shadow:var(--shadow-s)}
+  .menu-item{text-align:center;font-size:.47rem;font-weight:700;color:var(--sub);line-height:1.2}
+  .menu-item .ic{width:28px;height:28px;margin:0 auto 5px;border-radius:10px;display:grid;place-items:center;background:var(--sky-soft);color:var(--navy)}
+  .menu-item .ic svg{width:15px;height:15px}
+  .menu-item.ai .ic{background:linear-gradient(135deg,#6a2fd6,#a45cff);color:#fff}
+  .menu-item.g1 .ic{background:#fdeecf;color:#c98a12} .menu-item.g2 .ic{background:#e6f6ee;color:var(--green)} .menu-item.g3 .ic{background:#fdeceb;color:var(--red)}
+  .stok-low{margin:9px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 12px;box-shadow:var(--shadow-s)}
+  .stok-low .wt{font-size:.6rem;font-weight:800;letter-spacing:.09em;color:var(--ink);text-transform:uppercase;margin-bottom:8px}
+  .low-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .low-item{background:var(--pink);border-radius:11px;padding:8px 3px 7px;text-align:center}
+  .low-item .tri{width:20px;height:20px;margin:0 auto 4px} .low-item .nm{font-size:.57rem;font-weight:800;color:var(--ink)} .low-item .ss{font-size:.49rem;color:var(--sub);margin-top:2px;font-weight:600}
+  .add-btn{margin:9px 12px 0;background:linear-gradient(135deg,var(--navy),#004aa8);color:#fff;border-radius:14px;padding:13px;text-align:center;font-size:.78rem;font-weight:800;letter-spacing:.03em;box-shadow:0 8px 18px rgba(0,56,132,.28);display:flex;align-items:center;justify-content:center;gap:8px}
+  .scene.play .add-btn.beat{animation:beat 1.2s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+  .botnav{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:9px 0 14px;z-index:15}
+  .botnav div{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.55rem;font-weight:700;color:#aab6c8}
+  .botnav div svg{width:19px;height:19px} .botnav div.on{color:var(--navy)}
+
+  /* ===== headers ===== */
+  .hd{background:linear-gradient(135deg,var(--navy),#004aa8);color:#fff;padding:34px 16px 14px;display:flex;align-items:center;gap:10px}
+  .hd .chev{font-size:20px;font-weight:700;width:22px}
+  .hd .ttl{flex:1;text-align:center;font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.4px}
+  .hd .ric{width:22px;text-align:right;opacity:.9}
+  .body{padding:13px 12px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-s)}
+  .prod-ic{width:40px;height:40px;flex:none;display:grid;place-items:center} .boxic{width:100%;height:100%}
+  .mono{font-family:var(--mono)}
+  .hd-light{padding:34px 16px 8px;position:relative;text-align:center}
+  .hd-light .ttl{font-family:var(--display);font-weight:800;font-size:1.12rem;color:var(--ink)}
+  .hd-light .filt{position:absolute;right:18px;top:36px;color:var(--navy)}
+
+  /* ===== KASIR / TAMBAH PENJUALAN ===== */
+  .scanbtn{background:var(--navy);color:#fff;border-radius:13px;padding:12px;text-align:center;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px}
+  .scanbtn svg{width:17px;height:17px}
+  .searchf{background:#eaf1fb;border:1px solid var(--line);border-radius:20px;padding:9px 13px;display:flex;align-items:center;justify-content:space-between;color:var(--sub);font-size:.75rem;margin-bottom:11px}
+  .scanline{position:absolute;left:14px;right:14px;top:150px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0;z-index:8}
+  .scene.play .scanline.go{animation:scan 1.3s ease-in-out infinite}
+  @keyframes scan{0%{opacity:0;transform:translateY(0)}25%{opacity:1}75%{opacity:1}100%{opacity:0;transform:translateY(110px)}}
+  .ci{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:9px;box-shadow:var(--shadow-s);opacity:0;transform:translateX(14px) scale(.97)}
+  .ci.show{opacity:1;transform:none;transition:opacity .35s,transform .35s}
+  .ci .mid{flex:1;min-width:0} .ci .nm{font-size:.82rem;font-weight:800;color:var(--ink)} .ci .un{font-size:.62rem;color:var(--sub);margin-top:1px}
+  .step{display:flex;align-items:center;gap:6px;margin-top:8px}
+  .step .b{width:25px;height:25px;border-radius:8px;background:var(--navy);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.9rem}
+  .step .q{width:36px;height:25px;border:1px solid var(--line);border-radius:7px;background:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;color:var(--ink)}
+  .ci .sub{text-align:right} .ci .sub .s1{font-size:.55rem;color:var(--sub)} .ci .sub .s2{font-size:.8rem;font-weight:800;color:var(--ink);margin-top:2px}
+  .totbar{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(135deg,var(--navy),#004aa8);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;z-index:20}
+  .totbar .tl{font-size:.66rem;color:#c7d8f5;font-weight:600} .totbar .tv{font-size:1.25rem;font-weight:800;color:#fff;margin-top:2px}
+  .totbar .pay{background:#fff;color:var(--navy);font-weight:800;font-size:.82rem;padding:11px 24px;border-radius:11px}
+  .scene.play .totbar .pay.beat{animation:beat 1.1s ease-in-out infinite}
+
+  /* ===== NOTA ===== */
+  .modalbg{position:absolute;inset:0;background:rgba(16,24,48,.5);display:flex;align-items:center;justify-content:center;padding:20px;z-index:15}
+  .receipt{width:100%;max-width:228px;background:#fff;border-radius:18px;padding:18px;box-shadow:0 26px 50px -18px rgba(0,0,0,.5);opacity:0;transform:translateY(22px) scale(.96)}
+  .scene.play .receipt{animation:popr .55s .2s forwards cubic-bezier(.2,1.2,.4,1)}
+  @keyframes popr{to{opacity:1;transform:none}}
+  .receipt .sic{width:32px;height:32px;margin:0 auto;color:var(--navy)}
+  .receipt .rh{text-align:center;font-family:var(--display);font-weight:800;font-size:1rem;color:var(--ink);margin-top:4px}
+  .receipt .ra{text-align:center;font-size:.5rem;color:var(--sub);margin-top:3px;line-height:1.5}
+  .dash{border:0;border-top:1.4px dashed #cfd8e6;margin:11px 0}
+  .rl{display:flex;justify-content:space-between;font-size:.62rem;color:#2b3a55;margin:3px 0} .rl .m{font-weight:700;color:var(--ink)}
+  .ri{display:flex;justify-content:space-between;font-size:.62rem;margin:5px 0}
+  .ri .nm{font-weight:700;color:var(--ink)} .ri .nm small{display:block;color:var(--sub);font-weight:500;font-size:.52rem}
+  .rtot{display:flex;justify-content:space-between;font-size:.82rem;font-weight:800;color:var(--ink);margin-top:5px}
+  .thanks{text-align:center;color:var(--navy);font-weight:800;font-size:.72rem;margin-top:10px}
+  .thanks small{display:block;color:var(--sub);font-weight:500;font-size:.5rem;margin-top:2px}
+  .rbtn{margin-top:12px;background:var(--navy);color:#fff;text-align:center;padding:10px;border-radius:11px;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;gap:6px}
+
+  /* ===== RIWAYAT ===== */
+  .period{display:flex;align-items:center;gap:4px;margin-bottom:10px;flex-wrap:nowrap}
+  .period .pill{background:var(--navy);border:1px solid var(--navy);border-radius:9px;padding:5px 7px;font-size:.5rem;font-weight:700;color:#fff;white-space:nowrap}
+  .period .pl-navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .total-laba{background:linear-gradient(135deg,var(--navy),#004aa8);color:#fff;border-radius:12px;padding:11px;text-align:center;font-size:.78rem;font-weight:800;letter-spacing:.03em;display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:11px}
+  .total-laba svg{width:13px;height:13px}
+  .trx{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 12px;margin-bottom:9px;box-shadow:var(--shadow-s)}
+  .trx .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .trx .id{font-size:.66rem;font-weight:800;color:var(--ink);min-width:0} .trx .id small{display:block;font-size:.55rem;font-weight:700;color:var(--green);margin-top:2px}
+  .trx .amt{font-family:var(--display);font-weight:800;font-size:.92rem;color:var(--navy-deep);white-space:nowrap;flex:none;margin-top:-3px}
+  .trx .meta{font-size:.55rem;color:var(--sub);margin-top:7px;line-height:1.5}
+  .trx .lihat{font-size:.57rem;color:var(--navy);font-weight:700;text-decoration:underline;margin-top:5px;display:inline-block}
+
+  /* ===== STOK ===== */
+  .sk{display:flex;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:9px;box-shadow:var(--shadow-s)}
+  .sk .mid{flex:1} .sk .nm{font-size:.82rem;font-weight:800;color:var(--ink)}
+  .sk .ln{font-size:.6rem;color:#3b4a63;margin-top:2px;line-height:1.5} .sk .bc{font-size:.55rem;color:var(--sub);margin-top:2px}
+  .sk .act{display:flex;flex-direction:column;gap:10px;align-items:center;color:var(--navy)} .sk .act svg{width:15px;height:15px}
+  .stok-foot{background:linear-gradient(135deg,var(--navy),#004aa8);border-radius:15px;padding:12px;text-align:center;color:#fff;margin-top:2px}
+  .stok-foot .tj{font-size:.66rem;opacity:.9} .stok-foot .n{font-size:1.05rem;font-weight:800;margin:2px 0 9px}
+  .stok-foot .up{background:#fff;color:var(--navy);border-radius:11px;padding:9px;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;gap:6px}
+
+  /* ===== AI (sesuai screenshot) ===== */
+  .ai-menu{position:absolute;top:34px;left:16px;z-index:5;color:var(--ink)} .ai-menu svg{width:22px;height:22px}
+  .chatbg{padding:50px 14px 58px;display:flex;flex-direction:column;gap:8px}
+  .salin{align-self:flex-start;display:flex;align-items:center;gap:4px;font-size:.54rem;color:var(--sub);font-weight:600;margin:-3px 0 2px 4px;opacity:0} .salin svg{width:11px;height:11px}
+  .scene.play .s2{animation:rise .4s 2.5s forwards} .scene.play .s4{animation:rise .4s 4.4s forwards} .scene.play .s6{animation:rise .4s 6.3s forwards}
+  .msg{max-width:84%;padding:10px 13px;font-size:.7rem;line-height:1.5;opacity:0}
+  .msg.me{align-self:flex-end;background:var(--navy);color:#fff;border-radius:16px;font-weight:600}
+  .msg.ai{align-self:flex-start;background:#eef1f6;color:var(--ink);border-radius:16px} .msg.ai b{color:var(--navy)}
+  .scene.play .msg.m1{animation:rise .4s .3s forwards}
+  .scene.play .typing{animation:rise .4s .9s forwards, fade .3s 1.85s forwards}
+  .scene.play .msg.m2{animation:rise .45s 2.05s forwards}
+  .scene.play .msg.m3{animation:rise .4s 3.2s forwards}
+  .scene.play .msg.m4{animation:rise .45s 3.95s forwards}
+  .scene.play .msg.m5{animation:rise .4s 5.1s forwards}
+  .scene.play .msg.m6{animation:rise .45s 5.85s forwards}
+  @keyframes fade{to{opacity:0;height:0;padding:0;margin:-5px 0}}
+  .typing{align-self:flex-start;background:#eef2f8;border-radius:14px;border-bottom-left-radius:5px;padding:11px 14px;display:flex;gap:5px;opacity:0}
+  .typing i{width:6px;height:6px;border-radius:50%;background:var(--sub);animation:blink 1.2s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+  .ai-input{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 13px;display:flex;align-items:center;gap:9px;z-index:6}
+  .ai-input .box{flex:1;background:#eef2f8;border-radius:20px;padding:9px 13px;color:var(--sub);font-size:.68rem}
+  .ai-input svg{width:17px;height:17px;color:var(--sub)} .ai-input .send{color:var(--navy)}
+
+  /* ===== BERITA ===== */
+  .news{background:#fff;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;padding:11px 12px;margin-bottom:9px;box-shadow:var(--shadow-s);display:flex;gap:9px}
+  .news .mid{flex:1;min-width:0}
+  .news .hl{font-size:.72rem;font-weight:800;color:var(--ink);line-height:1.3}
+  .news .sn{font-size:.57rem;color:var(--sub);margin-top:4px;line-height:1.5}
+  .news .more{font-size:.55rem;color:var(--navy);font-weight:700;text-decoration:underline;margin-top:5px;display:inline-block}
+  .news .ext{color:var(--navy);flex:none} .news .ext svg{width:15px;height:15px}
+
+  /* ===== KARYAWAN ===== */
+  .emp{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 16px;text-align:center;box-shadow:var(--shadow-s)}
+  .emp .ava{width:76px;height:76px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,var(--navy),#004aa8);display:grid;place-items:center;color:#fff;font-family:var(--display);font-weight:800;font-size:1.9rem;position:relative}
+  .emp .ava .cam{position:absolute;bottom:-2px;right:-2px;width:25px;height:25px;border-radius:50%;background:var(--navy);border:2px solid #fff;display:grid;place-items:center;color:#fff}
+  .emp .ava .cam svg{width:12px;height:12px}
+  .emp .nm{font-family:var(--display);font-weight:800;font-size:1.28rem;color:var(--ink)}
+  .emp .pos{font-size:.68rem;color:var(--ink);font-weight:700;margin-top:5px} .emp .gaji{font-size:.68rem;color:var(--ink);font-weight:700;margin-top:3px}
+  .emp .pills{display:flex;gap:10px;margin:15px 0 6px}
+  .emp .pil{flex:1} .emp .pil .l{font-size:.55rem;color:var(--sub);font-weight:700;margin-bottom:5px}
+  .emp .pil .v{background:var(--navy);color:#fff;border-radius:10px;padding:9px;font-size:.66rem;font-weight:700}
+  .emp .ks{font-style:italic;font-weight:700;font-size:.62rem;color:var(--ink);text-decoration:underline;margin-top:10px}
+  .emp .ks-v{font-size:.6rem;color:var(--sub);margin-top:4px;line-height:1.5}
+  .emp .acts{display:flex;justify-content:space-between;margin-top:16px;font-size:.58rem;font-weight:700}
+  .emp .acts .a{display:flex;align-items:center;gap:4px} .emp .acts svg{width:13px;height:13px}
+  .emp .acts .del{color:var(--red)} .emp .acts .ok{color:var(--green)} .emp .acts .ed{color:var(--navy)}
+
+  /* ===== CASHFLOW ===== */
+  .cf-card{padding:14px;margin-bottom:12px}
+  .cf-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+  .cf-top .m{font-weight:800;color:var(--ink);font-size:.8rem}
+  .donutwrap{display:flex;justify-content:center;padding:6px 0 2px}
+  .donut{width:146px;height:146px;border-radius:50%;position:relative;background:conic-gradient(var(--navy) 0 68%, var(--red) 68% 100%)}
+  .scene.play .donut{animation:spin .9s ease-out}
+  @keyframes spin{from{transform:rotate(-90deg) scale(.82);opacity:.4}to{transform:none;opacity:1}}
+  .donut::after{content:"";position:absolute;inset:33px;background:#fff;border-radius:50%}
+  .donut .eye{position:absolute;inset:0;display:grid;place-items:center;color:var(--sub);z-index:2}
+  .cf-lg{display:flex;justify-content:space-between;font-size:.55rem;color:var(--sub);margin-top:8px;padding:0 6px} .cf-lg b{color:var(--ink)}
+  .cf-title{font-size:.72rem;font-weight:800;color:var(--ink);text-decoration:underline;margin:2px 2px 10px}
+  .cf-line{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:9px;box-shadow:var(--shadow-s)}
+  .cf-line .r{display:flex;justify-content:space-between;align-items:center}
+  .cf-line .nm{font-size:.72rem;font-weight:800;color:var(--ink)} .cf-line .v{font-size:.72rem;color:#3b4a63;margin-top:2px;font-weight:600}
+  .cf-bar{height:6px;border-radius:4px;margin-top:8px;background:#eef3fa;overflow:hidden}
+  .cf-bar i{display:block;height:100%;width:0;border-radius:4px}
+  .scene.play .cf-bar i.go{animation:fill 1s .4s forwards ease-out}
+  @keyframes fill{to{width:var(--w)}}
+
+  /* ===== TAGIHAN ===== */
+  .bill{background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin-bottom:10px;border-left:5px solid var(--green);display:flex;gap:10px;box-shadow:var(--shadow-s)}
+  .bill.late{border-left-color:var(--red)} .bill.warn{border-left-color:var(--gold)}
+  .bill .ic{width:38px;height:38px;border-radius:50%;border:2px solid #c9d4e6;display:grid;place-items:center;flex:none;color:var(--ink)} .bill .ic svg{width:19px;height:19px}
+  .bill .mid{flex:1;min-width:0}
+  .bill .nm{font-size:.86rem;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:6px}
+  .bill .badge{font-size:.42rem;font-weight:800;color:#fff;background:var(--red);padding:2px 6px;border-radius:5px;letter-spacing:.3px}
+  .bill .badge.y{background:var(--gold);color:#3a2c00} .bill .badge.g{background:var(--green)}
+  .bill .ln{font-size:.56rem;color:#3b4a63;margin-top:3px;line-height:1.55} .bill .ln .r{color:var(--red)} .bill .ln .y{color:#b8860b}
+  .bill .due{text-align:right;flex:none} .bill .due .lbl{font-size:.44rem;color:var(--sub)} .bill .due .d{font-size:1.1rem;font-weight:800;color:var(--ink);line-height:1} .bill .due .my{font-size:.48rem;font-weight:700;color:var(--ink)}
+
+  /* ===== CLOSING ===== */
+  .scene.closing{background:linear-gradient(180deg,#cfe0fb 0%,#e8f0fc 46%,#ffffff 100%)}
+  .close-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:30px;text-align:center}
+  .close-logo{width:120px;height:120px;object-fit:contain;filter:drop-shadow(0 12px 24px rgba(0,56,132,.28));opacity:0}
+  .scene.play .close-logo{animation:pop .6s .15s forwards cubic-bezier(.2,1.3,.4,1)}
+  @keyframes pop{to{opacity:1;transform:none}}
+  .close-brand{font-family:var(--display);font-weight:800;font-size:1.5rem;color:#111;opacity:0}
+  .scene.play .close-brand{animation:rise .5s .5s forwards}
+  .close-tag{font-size:.78rem;color:var(--sub);line-height:1.6;max-width:210px;font-weight:500;opacity:0}
+  .scene.play .close-tag{animation:rise .5s .7s forwards}
+  .close-soon{font-size:.62rem;color:var(--sub);font-weight:600;opacity:0} .scene.play .close-soon{animation:rise .5s .9s forwards}
+  .gp-badge{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--ink);border-radius:9px;padding:8px 15px;border:1px solid var(--line);box-shadow:var(--shadow-m);opacity:0}
+  .gp-badge .gp-ic{width:21px;height:23px;flex:none} .gp-badge small{display:block;font-size:.42rem;font-weight:600;letter-spacing:.09em;color:var(--sub)} .gp-badge b{font-size:.9rem;font-weight:700;line-height:1.05;color:var(--ink)}
+  .scene.play .gp-badge{animation:rise .5s 1.05s forwards}
+  .close-note{font-size:.55rem;color:var(--sub);opacity:0} .scene.play .close-note{animation:rise .5s 1.25s forwards}
+
+  /* ===== player chrome ===== */
+  .caption{max-width:340px;text-align:center;min-height:64px}
+  .caption h2{font-size:1.15rem;font-weight:800;color:#fff;transition:opacity .4s;display:flex;gap:9px;align-items:center;justify-content:center}
+  .caption h2 .k{font-family:var(--display);color:var(--gold);font-size:.95rem}
+  .caption p{font-size:.82rem;color:#b8ccef;margin-top:6px;line-height:1.5;transition:opacity .4s}
+  .controls{display:flex;align-items:center;gap:14px}
+  .ctrl{width:44px;height:44px;border-radius:50%;border:1px solid rgba(194,215,255,.3);background:rgba(255,255,255,.08);display:grid;place-items:center;cursor:pointer;color:#fff;transition:.15s}
+  .ctrl:hover{background:rgba(255,255,255,.18)}.ctrl:active{transform:scale(.92)} .ctrl svg{width:18px;height:18px}
+  .ctrl.big{width:54px;height:54px;background:var(--gold);border-color:transparent;color:#3a2c00} .ctrl.big:hover{background:#ffcb2e}
+  .dots{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;max-width:300px}
+  .cdot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);cursor:pointer;transition:.25s} .cdot.on{background:var(--gold);width:24px;border-radius:6px}
+
+  @media (max-width:360px){.phone{transform:scale(.92)}}
+  @media (prefers-reduced-motion:reduce){.orb{animation:none}.scene.play *{animation-duration:.01ms!important}.scene{transition:opacity .2s}}
+</style>
+</head>
+<body>
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="stage">
+    <div class="phone"><div class="screen">
+      <div class="segbar" id="segbar"></div>
+      <div class="screens" id="screens">
+
+        <!-- 0 · BERANDA -->
+        <section class="scene" data-cap="0">
+          %%SB%%
+          <div class="greet"><div class="hi st d1">Hello, Juragan Abadi!</div><div class="date st d1">Selasa, 28 Juli 2026</div></div>
+          <div class="sales-card st d2">
+            <div class="col">
+              <div class="lbl">Penjualan Hari Ini</div>
+              <div class="amt"><span id="counter">Rp 0</span></div>
+              <div class="subl">Laba Kotor: <b>Rp 612.000</b></div>
+              <div class="txl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg>Jumlah Transaksi: 24</div>
+            </div>
+            <svg class="arrow-up" viewBox="0 0 60 56" fill="none"><path d="M4 46 L18 28 L28 37 L46 13" stroke="#1f9d57" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 11 h14 v14" stroke="#1f9d57" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="menu-grid st d3">
+            <div class="menu-item ai"><div class="ic"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg></div>Asisten AI</div>
+            <div class="menu-item g1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 22V4a2 2 0 0 1 2-2h11l3 3v17"/><path d="M8 7h6M8 11h8M8 15h5"/></svg></div>Berita</div>
+            <div class="menu-item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M2 20c0-3.3 3.1-5 7-5s7 1.7 7 5"/><path d="M16 4.2a3.2 3.2 0 0 1 0 6.1"/><path d="M22 20c0-2.7-2-4.3-4.5-4.8"/></svg></div>Karyawan</div>
+            <div class="menu-item g2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3l4 4-4 4"/><path d="M21 7H8"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h13"/></svg></div>Cashflow</div>
+            <div class="menu-item g3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg></div>Tagihan</div>
+          </div>
+          <div class="stok-low st d4">
+            <div class="wt">Stok Hampir Habis</div>
+            <div class="low-grid">
+              <div class="low-item"><div class="tri">%%TRI%%</div><div class="nm">Minyak</div><div class="ss">Sisa: 0 pcs</div></div>
+              <div class="low-item"><div class="tri">%%TRI%%</div><div class="nm">Gula</div><div class="ss">Sisa: 2 pcs</div></div>
+              <div class="low-item"><div class="tri">%%TRI%%</div><div class="nm">Telur</div><div class="ss">Sisa: 3 pcs</div></div>
+              <div class="low-item"><div class="tri">%%TRI%%</div><div class="nm">Kopi</div><div class="ss">Sisa: 4 pcs</div></div>
+            </div>
+          </div>
+          <div class="add-btn beat">TAMBAH PENJUALAN
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M12 5v14M5 12h14"/></svg>
+          </div>
+          <div class="tap go" style="left:130px;top:382px;animation-delay:1.5s"></div>
+          %%NAVH%%
+        </section>
+
+        <!-- 1 · TAMBAH PENJUALAN (cart) -->
+        <section class="scene" data-cap="1">
+          %%SBW%%
+          <div class="hd"><span class="chev">‹</span><span class="ttl">TAMBAH PENJUALAN</span><span class="ric"></span></div>
+          <div class="body" style="padding-bottom:74px">
+            <div class="scanbtn st d1"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 5v14M7 5v14M11 5v14M15 5v14M19 5v14"/></svg>[ Scan Barcode ]</div>
+            <div class="searchf st d1">Search <svg viewBox="0 0 24 24" width="14" fill="none" stroke="#6B7A8D" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></div>
+            <div class="scanline go"></div>
+            <div id="cart">
+              <div class="ci" data-i="0"><div class="prod-ic">%%BOX%%</div>
+                <div class="mid"><div class="nm">Beras Pandan 5kg</div><div class="un">(1 × Rp 68.000)</div>
+                  <div class="step"><span class="b">−</span><span class="q">1</span><span class="b">+</span></div></div>
+                <div class="sub"><div class="s1">Subtotal:</div><div class="s2">Rp 68.000</div></div></div>
+              <div class="ci" data-i="1"><div class="prod-ic">%%BOX%%</div>
+                <div class="mid"><div class="nm">Gula Pasir 1kg</div><div class="un">(1 × Rp 18.000)</div>
+                  <div class="step"><span class="b">−</span><span class="q">1</span><span class="b">+</span></div></div>
+                <div class="sub"><div class="s1">Subtotal:</div><div class="s2">Rp 18.000</div></div></div>
+              <div class="ci" data-i="2"><div class="prod-ic">%%BOX%%</div>
+                <div class="mid"><div class="nm">Kopi Sachet</div><div class="un">(1 × Rp 12.000)</div>
+                  <div class="step"><span class="b">−</span><span class="q">1</span><span class="b">+</span></div></div>
+                <div class="sub"><div class="s1">Subtotal:</div><div class="s2">Rp 12.000</div></div></div>
+            </div>
+          </div>
+          <div class="totbar"><div><div class="tl">TOTAL BELANJA:</div><div class="tv" id="carttotal">Rp 0</div></div><div class="pay beat">BAYAR</div></div>
+        </section>
+
+        <!-- 2 · NOTA -->
+        <section class="scene" data-cap="2">
+          %%SB%%
+          <div class="hd-light"><div class="ttl">NOTA PENJUALAN</div></div>
+          <div class="modalbg">
+            <div class="receipt">
+              <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="#003884" stroke-width="1.8"><path d="M3 9l1-4h16l1 4M4 9v11h16V9M4 9h16"/><path d="M9 9v3a3 3 0 006 0V9"/></svg></div>
+              <div class="rh">JURAGAN ABADI</div>
+              <div class="ra">Jl. Tanjung Duren 3A, Jakarta Selatan, 61456<br>Telp: 081232132234</div>
+              <hr class="dash">
+              <div class="rl"><span class="mono">ID: #ES-28072026</span><span class="m">28 Juli 2026</span></div>
+              <div class="rl"><span>10.14</span><span class="m">Tunai</span></div>
+              <hr class="dash">
+              <div class="ri"><span class="nm">Beras Pandan 5kg<small>1 × Rp 68.000</small></span><span>Rp 68.000</span></div>
+              <div class="ri"><span class="nm">Gula Pasir 1kg<small>1 × Rp 18.000</small></span><span>Rp 18.000</span></div>
+              <div class="ri"><span class="nm">Kopi Sachet<small>1 × Rp 12.000</small></span><span>Rp 12.000</span></div>
+              <hr class="dash">
+              <div class="rtot"><span>TOTAL</span><span>Rp 98.000</span></div>
+              <div class="rl" style="margin-top:4px"><span>Bayar (Tunai)</span><span class="m">Rp 100.000</span></div>
+              <div class="rl"><span>Kembali</span><span class="m">Rp 2.000</span></div>
+              <div class="thanks">Terima Kasih Pelanggan<small>Nota ini adalah bukti transaksi yang sah</small></div>
+              <div class="rbtn"><svg viewBox="0 0 24 24" width="13" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v13M7 8l5-5 5 5M5 21h14"/></svg>Bagikan / Cetak</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3 · DATA STOK -->
+        <section class="scene" data-cap="3">
+          %%SB%%
+          <div class="hd-light"><div class="ttl">DATA STOK</div>
+            <span class="filt"><svg viewBox="0 0 24 24" width="19" fill="none" stroke="#003884" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg></span></div>
+          <div class="body" style="padding-top:8px;padding-bottom:56px">
+            <div class="scanbtn st d1"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 5v14M7 5v14M11 5v14M15 5v14M19 5v14"/></svg>[ Scan Barcode ]</div>
+            <div class="sk st d2"><div class="prod-ic">%%BOX%%</div>
+              <div class="mid"><div class="nm">Beras Pandan 5kg</div><div class="ln">Kuantitas: 24 pcs · Modal Rp 62.000<br>Harga Jual: Rp 68.000</div><div class="bc mono">▦ 8991234500017</div></div>
+              <div class="act">%%EDIT%%%%DEL%%</div></div>
+            <div class="sk st d3"><div class="prod-ic">%%BOX%%</div>
+              <div class="mid"><div class="nm">Minyak Goreng 2L</div><div class="ln">Kuantitas: 0 pcs · Modal Rp 33.000<br>Harga Jual: Rp 37.000</div><div class="bc mono">▦ 8991234500024</div></div>
+              <div class="act">%%EDIT%%%%DEL%%</div></div>
+            <div class="sk st d4"><div class="prod-ic">%%BOX%%</div>
+              <div class="mid"><div class="nm">Gula Pasir 1kg</div><div class="ln">Kuantitas: 2 pcs · Modal Rp 16.000<br>Harga Jual: Rp 18.000</div><div class="bc mono">▦ 8991234500031</div></div>
+              <div class="act">%%EDIT%%%%DEL%%</div></div>
+            <div class="stok-foot st d5"><div class="tj">Total Jenis Barang:</div><div class="n">6</div>
+              <div class="up"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="#003884" stroke-width="2"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>Unggah Stok Baru</div></div>
+          </div>
+          %%NAVD%%
+        </section>
+
+        <!-- 4 · RIWAYAT -->
+        <section class="scene" data-cap="4">
+          %%SB%%
+          <div class="hd-light"><div class="ttl">RIWAYAT PENJUALAN</div></div>
+          <div class="body" style="padding-top:6px;padding-bottom:56px">
+            <div class="period st d1"><span class="pill pl-navy">PERIODE</span><span class="pill">24/07/2026 ▾</span><span class="pill">28/07/2026 ▾</span><span class="pill">Reset</span></div>
+            <div class="total-laba st d1"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>TOTAL LABA</div>
+            <div class="trx st d2"><div class="top"><div class="id">Transaksi #ES-28072026<small>Status: Selesai</small></div><div class="amt">Rp 98.000</div></div>
+              <div class="meta">Metode: Tunai · Waktu: 10.14<br>Tanggal: 28 Juli 2026</div><span class="lihat">Lihat Nota</span></div>
+            <div class="trx st d3"><div class="top"><div class="id">Transaksi #ES-28072026<small>Status: Selesai</small></div><div class="amt">Rp 46.500</div></div>
+              <div class="meta">Metode: Qris · Waktu: 09.32<br>Tanggal: 28 Juli 2026</div><span class="lihat">Lihat Nota</span></div>
+            <div class="trx st d4"><div class="top"><div class="id">Transaksi #ES-27072026<small>Status: Selesai</small></div><div class="amt">Rp 132.000</div></div>
+              <div class="meta">Metode: Transfer · Waktu: 17.48<br>Tanggal: 27 Juli 2026</div><span class="lihat">Lihat Nota</span></div>
+          </div>
+          %%NAVC%%
+        </section>
+
+        <!-- 5 · ESSEIGMA AI -->
+        <section class="scene" data-cap="5">
+          %%SB%%
+          <div class="ai-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+          <div class="chatbg">
+            <div class="msg me m1">Bulan ini omzetku turun, kenapa ya? 📖</div>
+            <div class="typing"><i></i><i></i><i></i></div>
+            <div class="msg ai m2">Penjualan minyak &amp; gula turun ~18% karena stok sempat kosong 4 hari. Dua barang ini penyumbang omzet terbesarmu. 📊</div>
+            <div class="salin s2">%%COPY%%Salin</div>
+            <div class="msg me m3">Oke, barang apa yang perlu aku restok?</div>
+            <div class="msg ai m4">Prioritas: <b>Minyak Goreng</b> (habis), <b>Gula</b> (sisa 2), <b>Telur</b> (sisa 3). Perkiraan modal ±Rp 1,2 jt untuk stok seminggu.</div>
+            <div class="salin s4">%%COPY%%Salin</div>
+            <div class="msg me m5">Bantu targetnya biar omzet naik lagi 🙏</div>
+            <div class="msg ai m6">Untuk balik ke Rp 74 jt/bln, target ±Rp 2,5 jt/hari. Fokus jam ramai 17.00–20.00 &amp; tawarkan paket sembako hemat.</div>
+            <div class="salin s6">%%COPY%%Salin</div>
+          </div>
+          <div class="ai-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12l-9 9a5 5 0 01-7-7l9-9a3.5 3.5 0 015 5l-9 9a2 2 0 01-3-3l8-8"/></svg>
+            <div class="box">Ketik di sini…</div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 013 3v6a3 3 0 01-6 0V5a3 3 0 013-3z"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg>
+            <svg class="send" viewBox="0 0 24 24" fill="currentColor"><path d="M3 11l18-8-8 18-2-7-8-3z"/></svg>
+          </div>
+        </section>
+
+        <!-- 6 · BERITA PASAR -->
+        <section class="scene" data-cap="6">
+          %%SBW%%
+          <div class="hd"><span class="chev">‹</span><span class="ttl">BERITA PASAR</span>
+            <span class="ric"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span></div>
+          <div class="body">
+            <div class="news st d1"><div class="mid"><div class="hl">Harga Sembako Naik Jelang Akhir Bulan, Warung Diimbau Atur Stok</div>
+              <div class="sn">Beras, minyak goreng, dan gula pasir kompak naik di tingkat grosir pekan ini. Pemilik warung disarankan mengatur stok…</div><span class="more">Selengkapnya</span></div>
+              <span class="ext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+            <div class="news st d2"><div class="mid"><div class="hl">Transaksi QRIS di Warung &amp; Toko Kelontong Melonjak 40%</div>
+              <div class="sn">Adopsi pembayaran digital di usaha mikro terus tumbuh; pelaku ritel kecil didorong mencatat penjualan secara digital…</div><span class="more">Selengkapnya</span></div>
+              <span class="ext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+            <div class="news st d3"><div class="mid"><div class="hl">KUR &amp; Subsidi UMKM 2026 Diperluas untuk Toko Kelontong</div>
+              <div class="sn">Pemerintah memperluas akses pembiayaan mikro & subsidi bagi pelaku ritel kecil agar modal usaha lebih terjangkau…</div><span class="more">Selengkapnya</span></div>
+              <span class="ext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+          </div>
+        </section>
+
+        <!-- 7 · KARYAWAN -->
+        <section class="scene" data-cap="7">
+          %%SBW%%
+          <div class="hd"><span class="chev">‹</span><span class="ttl">KARYAWAN</span><span class="ric"></span></div>
+          <div class="body">
+            <div class="emp st d1">
+              <div class="ava">G<span class="cam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span></div>
+              <div class="nm">Gisel</div>
+              <div class="pos">Posisi: Admin</div>
+              <div class="gaji">Gaji Pokok: Rp 1.000.000</div>
+              <div class="pills">
+                <div class="pil"><div class="l">Bonus Bulanan</div><div class="v">Rp 250.000</div></div>
+                <div class="pil"><div class="l">Shift</div><div class="v">08:00 – 16:00</div></div>
+              </div>
+              <div class="ks">Kritik &amp; saran</div>
+              <div class="ks-v">Pelayanan ramah &amp; teliti. Perlu tingkatkan kecepatan di jam ramai.</div>
+              <div class="acts">
+                <span class="a del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>Hapus</span>
+                <span class="a ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Gaji dibayar</span>
+                <span class="a ed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16 3l5 5L8 21H3v-5z"/></svg>Edit</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8 · CASHFLOW (pemasukan unggul) -->
+        <section class="scene" data-cap="8">
+          %%SBW%%
+          <div class="hd"><span class="chev">‹</span><span class="ttl">CASHFLOW</span><span class="ric">+</span></div>
+          <div class="body">
+            <div class="card cf-card st d1">
+              <div class="cf-top"><span class="m">› Juli 2026</span>
+                <svg viewBox="0 0 24 24" width="17" fill="none" stroke="#003884" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div>
+              <div class="donutwrap"><div class="donut"><span class="eye"><svg viewBox="0 0 24 24" width="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
+              <div class="cf-lg"><span>Pemasukan <b>68,0%</b></span><span>Pengeluaran <b>32,0%</b></span></div>
+            </div>
+            <div class="cf-title st d2">Detail Cashflow ⌃</div>
+            <div class="cf-line st d3"><div class="r"><div><div class="nm">Pemasukan</div><div class="v">Rp 9.640.000</div></div><span>⌄</span></div>
+              <div class="cf-bar"><i class="go" style="--w:100%;background:var(--navy)"></i></div></div>
+            <div class="cf-line st d4"><div class="r"><div><div class="nm">Pengeluaran</div><div class="v">Rp 4.520.000</div></div><span>⌄</span></div>
+              <div class="cf-bar"><i class="go" style="--w:47%;background:var(--red)"></i></div></div>
+          </div>
+        </section>
+
+        <!-- 9 · TAGIHAN (terlambat / berjalan / lunas) -->
+        <section class="scene" data-cap="9">
+          %%SBW%%
+          <div class="hd"><span class="chev">‹</span><span class="ttl">DAFTAR TAGIHAN</span>
+            <span class="ric"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="#fff" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg></span></div>
+          <div class="body">
+            <div class="bill late st d1">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M12 12v3l2 1"/></svg></div>
+              <div class="mid"><div class="nm">Indofood <span class="badge">TERLAMBAT</span></div>
+                <div class="ln">Total: Rp 3.000.000<br>Dibayar: <span class="r">Rp 2.500.000</span> · Sisa: Rp 500.000</div></div>
+              <div class="due"><div class="lbl">Jatuh Tempo</div><div class="d">25</div><div class="my">JULI 2026</div></div>
+            </div>
+            <div class="bill warn st d2">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M12 12v3l2 1"/></svg></div>
+              <div class="mid"><div class="nm">Nabati <span class="badge y">BERJALAN</span></div>
+                <div class="ln">Total: Rp 1.200.000<br>Dibayar: <span class="y">Rp 900.000</span> · Sisa: Rp 300.000</div></div>
+              <div class="due"><div class="lbl">Jatuh Tempo</div><div class="d">31</div><div class="my">JULI 2026</div></div>
+            </div>
+            <div class="bill st d3">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M12 12v3l2 1"/></svg></div>
+              <div class="mid"><div class="nm">Mayora <span class="badge g">LUNAS</span></div>
+                <div class="ln">Total: Rp 5.000.000<br>Dibayar: Rp 5.000.000 · Sisa: Rp 0</div></div>
+              <div class="due"><div class="lbl">Jatuh Tempo</div><div class="d">25</div><div class="my">JULI 2026</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10 · CLOSING -->
+        <section class="scene closing" data-cap="10">
+          %%SB%%
+          <div class="close-wrap">
+            <img class="close-logo" src="%%LOGO%%" alt="Esseigma" />
+            <div class="close-brand">Esseigma POS AI</div>
+            <div class="close-tag">Kasir, stok, laba, tagihan, sampai asisten AI — semua warung dalam satu genggaman.</div>
+            <div class="close-soon">Segera hadir di</div>
+            <a class="gp-badge"><svg class="gp-ic" viewBox="0 0 24 24"><path fill="#00C6FF" d="M3 2 L12 7 L12 12 L3 12 Z"/><path fill="#FF3D3D" d="M12 7 L21 12 L12 12 Z"/><path fill="#FFD500" d="M12 12 L21 12 L12 17 Z"/><path fill="#00E676" d="M3 12 L12 12 L12 17 L3 22 Z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
+            <div class="close-note">Video demo · tampilan sebenarnya dapat sedikit berbeda</div>
+          </div>
+        </section>
+
+      </div>
+    </div></div>
+
+    <div class="caption" id="caption"><h2><span class="k">01</span><span id="cap-t"></span></h2><p id="cap-p"></p></div>
+    <div class="controls">
+      <button class="ctrl" id="prev" aria-label="Sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg></button>
+      <button class="ctrl big" id="play" aria-label="Putar / jeda"><svg id="pico" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+      <button class="ctrl" id="next" aria-label="Berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg></button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+
+<script>
+(function(){
+  var SB_DARK='<div class="statusbar dark"><span>09:41</span><span class="island"></span><span class="stat"><svg viewBox="0 0 19 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 18 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 5a10 10 0 0 1 14 0"/><path d="M4.5 7.6a6.4 6.4 0 0 1 9 0"/><path d="M7 10.2a2.8 2.8 0 0 1 4 0"/></svg><svg viewBox="0 0 26 13" fill="none"><rect x="1" y="1" width="21" height="11" rx="3.2" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="3" width="15" height="7" rx="1.4" fill="currentColor"/><path d="M24 4.5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div>';
+  var SB_W=SB_DARK.replace('statusbar dark','statusbar light');
+  var BOX='<svg class="boxic" viewBox="0 0 24 24"><rect x="3" y="7.5" width="18" height="12.5" rx="1.4" fill="#F2C230" stroke="#C99A16" stroke-width="1.2"/><rect x="2" y="4" width="20" height="4.6" rx="1" fill="#F5CE4A" stroke="#C99A16" stroke-width="1.2"/><rect x="9.3" y="10.8" width="5.4" height="2.2" rx="1.1" fill="#C99A16"/></svg>';
+  var TRI='<svg viewBox="0 0 24 24"><path d="M12 3 L22.5 20.5 H1.5 Z" fill="#e23b34"/><rect x="11" y="9" width="2" height="6" rx="1" fill="#fff"/><circle cx="12" cy="17" r="1.2" fill="#fff"/></svg>';
+  var EDIT='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16 3l5 5L8 21H3v-5z"/></svg>';
+  var DEL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>';
+  var COPY='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+  var NAV=[
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10 12 3l9 7"/><path d="M5 9v11h14V9"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 8v4l3 2"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>'
+  ];
+  function navHTML(act){var h='<nav class="botnav">';for(var i=0;i<5;i++){h+='<div'+(i===act?' class="on"':'')+'>'+NAV[i]+'</div>';}return h+'</nav>';}
+  var NAVH=navHTML(0),NAVD=navHTML(1),NAVC=navHTML(2);
+  var sc=document.getElementById('screens');
+  sc.innerHTML=sc.innerHTML.split('%%SBW%%').join(SB_W).split('%%SB%%').join(SB_DARK)
+    .split('%%BOX%%').join(BOX).split('%%TRI%%').join(TRI).split('%%EDIT%%').join(EDIT).split('%%DEL%%').join(DEL).split('%%COPY%%').join(COPY)
+    .split('%%NAVH%%').join(NAVH).split('%%NAVD%%').join(NAVD).split('%%NAVC%%').join(NAVC);
+
+  var CAPS=[
+    ["Beranda","Penjualan, laba, dan peringatan stok menipis dalam satu layar."],
+    ["Tambah penjualan","Scan barcode, barang & subtotal masuk otomatis, total langsung terhitung."],
+    ["Nota otomatis","Transaksi beres, nota rapi siap dibagikan atau dicetak."],
+    ["Data stok lengkap","Kuantitas, harga modal, harga jual, dan barcode tiap barang."],
+    ["Riwayat penjualan","Semua transaksi tersimpan rapi, lengkap metode & waktu."],
+    ["Esseigma AI","Tanya pakai bahasa sehari-hari, AI ubah data toko jadi jawaban."],
+    ["Berita pasar","Update harga komoditas & kabar UMKM langsung di aplikasi."],
+    ["Karyawan","Kelola gaji, bonus, shift, sampai catatan kinerja karyawan."],
+    ["Arus kas jelas","Pemasukan unggul atas pengeluaran — porsinya langsung terlihat."],
+    ["Tagihan supplier","Terlambat, berjalan, atau lunas — tak ada tagihan yang terlewat."],
+    ["Esseigma POS AI","Sebentar lagi tersedia di Google Play Store."]
+  ];
+  var DUR=[5200,5600,4800,5200,5200,7900,5200,5200,4800,5200,4600];
+  var BERANDA=0, KASIR=1;
+
+  var scenes=[].slice.call(document.querySelectorAll('.scene'));
+  var N=scenes.length, segbar=document.getElementById('segbar'), dotsBox=document.getElementById('dots');
+  var capT=document.getElementById('cap-t'),capP=document.getElementById('cap-p'),capNum=document.querySelector('.caption .k'),pico=document.getElementById('pico');
+
+  var segs=[];
+  for(var i=0;i<N;i++){
+    var s=document.createElement('div');s.className='seg';s.innerHTML='<i></i>';segbar.appendChild(s);segs.push(s);
+    var d=document.createElement('div');d.className='cdot';
+    d.addEventListener('click',(function(x){return function(){goto(x);};})(i));dotsBox.appendChild(d);
+  }
+  var dots=[].slice.call(dotsBox.children);
+
+  var idx=0,elapsed=0,playing=true,last=performance.now();
+  var fmt=new Intl.NumberFormat('id-ID');
+  var K_TH=[700,1600,2500], K_TOT=[68000,86000,98000], cartItems,cartTotalEl;
+  var counterEl=document.getElementById('counter'), SALES=2450000;
+
+  function resetKasir(){
+    cartItems=document.querySelectorAll('#cart .ci');cartTotalEl=document.getElementById('carttotal');
+    if(cartItems)cartItems.forEach(function(c){c.classList.remove('show');});
+    if(cartTotalEl)cartTotalEl.textContent='Rp 0';
+  }
+  function showScene(i){
+    scenes.forEach(function(s,k){s.classList.toggle('active',k===i);});
+    var a=scenes[i];a.classList.remove('play');void a.offsetWidth;a.classList.add('play');
+    if(i===KASIR)resetKasir();
+    if(i===BERANDA&&counterEl)counterEl.textContent='Rp 0';
+  }
+  function updateCaption(i){
+    capT.style.opacity=0;capP.style.opacity=0;
+    setTimeout(function(){capNum.textContent=('0'+(i+1)).slice(-2);capT.textContent=CAPS[i][0];capP.textContent=CAPS[i][1];capT.style.opacity=1;capP.style.opacity=1;},190);
+    dots.forEach(function(d,k){d.classList.toggle('on',k===i);});
+    segs.forEach(function(s,k){var bar=s.querySelector('i');s.classList.toggle('done',k<i);bar.style.width=(k<i)?'100%':'0%';});
+  }
+  function goto(i){idx=(i+N)%N;elapsed=0;showScene(idx);updateCaption(idx);}
+  function kasirTick(){
+    if(!cartItems)return;var tot=0;
+    for(var j=0;j<K_TH.length;j++){if(elapsed>=K_TH[j]){cartItems[j].classList.add('show');tot=K_TOT[j];}}
+    if(cartTotalEl)cartTotalEl.textContent='Rp '+fmt.format(tot);
+  }
+  function berandaTick(){
+    if(!counterEl)return;var p=Math.min(elapsed/1500,1);p=1-Math.pow(1-p,3);
+    counterEl.textContent='Rp '+fmt.format(Math.round(SALES*p));
+  }
+  function loop(now){
+    var dt=now-last;last=now;
+    if(playing){elapsed+=dt;var dur=DUR[idx];
+      segs[idx].querySelector('i').style.width=Math.min(elapsed/dur*100,100)+'%';
+      if(idx===KASIR)kasirTick(); if(idx===BERANDA)berandaTick();
+      if(elapsed>=dur)goto(idx+1);}
+    requestAnimationFrame(loop);
+  }
+  function setPlay(p){playing=p;document.body.classList.toggle('paused',!p);
+    pico.innerHTML=p?'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>':'<path d="M7 4l13 8-13 8V4z"/>';last=performance.now();}
+
+  document.getElementById('play').addEventListener('click',function(){setPlay(!playing);});
+  document.getElementById('next').addEventListener('click',function(){goto(idx+1);});
+  document.getElementById('prev').addEventListener('click',function(){goto(idx-1);});
+  var stl=document.createElement('style');stl.textContent='body.paused .scene.play *{animation-play-state:paused!important}';document.head.appendChild(stl);
+
+  goto(0);requestAnimationFrame(loop);
+})();
+<\/script>
+</body>
+</html>
+`;
+  var cs=document.getElementById('esComingSoon');
+  var overlay=document.getElementById('esDemoOverlay');
+  var frame=document.getElementById('esDemoFrame');
+  var brand=document.querySelector('.brand-logo');
+  var logo=brand?brand.src:'';
+
+  function openModal(e){ if(e){e.preventDefault();} cs.hidden=false; requestAnimationFrame(function(){cs.classList.add('show');}); }
+  function closeModal(){ cs.classList.remove('show'); setTimeout(function(){cs.hidden=true;},280); }
+  function openDemo(){
+    closeModal();
+    if(!frame.getAttribute('data-loaded')){ frame.srcdoc = ES_DEMO_HTML.replace(/%%LOGO%%/g, logo); frame.setAttribute('data-loaded','1'); }
+    overlay.hidden=false; requestAnimationFrame(function(){overlay.classList.add('show');});
+    document.body.style.overflow='hidden';
+  }
+  function closeDemo(){ overlay.classList.remove('show'); setTimeout(function(){overlay.hidden=true;},280); document.body.style.overflow=''; }
+
+  // Semua tombol "Mulai Gratis / Coba Sekarang / Instal / Unduh" -> popup coming soon
+  document.querySelectorAll('a[href="#unduh"], a.btn-gold[href="#"], a.btn-gold[href="#unduh"]').forEach(function(a){
+    a.addEventListener('click', openModal);
+  });
+  document.getElementById('esSeeDemo').addEventListener('click', openDemo);
+  document.querySelectorAll('[data-es-close]').forEach(function(b){ b.addEventListener('click', closeModal); });
+  document.querySelectorAll('[data-es-democlose]').forEach(function(b){ b.addEventListener('click', closeDemo); });
+  cs.addEventListener('click', function(e){ if(e.target===cs) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ if(!overlay.hidden){closeDemo();} else if(!cs.hidden){closeModal();} } });
+})();
+</script>
+<!-- ===== /Esseigma demo ===== -->
+
 </body>
 </html>
