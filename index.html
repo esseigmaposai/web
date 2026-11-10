@@ -17,7 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
 <style>
   :root{
@@ -415,6 +415,123 @@
     .reveal{opacity:1;transform:none}
   }
 </style>
+
+<style id="gaya-esseigma-2026">
+  :root{
+    --display:"Barlow Condensed","TeX Gyre Heros Cn","Arial Narrow",sans-serif;
+    --kuning:#FFDE59; --gold:#FFDE59; --gold-soft:#FFF6CC;
+    --biru:#5EA4EB;
+    --abstrak:
+      radial-gradient(38% 55% at 80% 40%, rgba(255,222,89,.95) 0%, rgba(255,222,89,.55) 35%, rgba(255,222,89,0) 70%),
+      radial-gradient(30% 40% at 92% 70%, rgba(255,246,214,.75) 0%, rgba(255,246,214,0) 70%),
+      radial-gradient(45% 60% at 62% 95%, rgba(94,164,235,.85) 0%, rgba(94,164,235,0) 70%),
+      radial-gradient(40% 55% at 18% 10%, rgba(29,94,196,.9) 0%, rgba(29,94,196,0) 70%),
+      radial-gradient(28% 40% at 45% 30%, rgba(194,215,255,.35) 0%, rgba(194,215,255,0) 70%),
+      linear-gradient(135deg,#001a46 0%,#003884 55%,#1d5ec4 100%);
+    --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  /* tombol */
+  .btn{border-radius:12px;letter-spacing:.02em}
+  .btn-primary,.btn-gold{background:var(--kuning);color:#002460;border-color:#002460;box-shadow:4px 4px 0 #002460}
+  .btn-primary:hover,.btn-gold:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #002460}
+  :focus-visible{outline-color:var(--biru)}
+  /* nav */
+  header.nav{background:rgba(0,36,96,.92)}
+  header.nav.scrolled{background:rgba(0,36,96,.97);border-color:rgba(255,255,255,.08)}
+  header.nav .brand{color:#fff}
+  header.nav .brand-logo{background:#fff;border-radius:10px;padding:4px}
+  .fbadge{color:var(--ink)}
+  .nav-links a{color:#C2D7FF}
+  .nav-links a:hover{color:var(--kuning)}
+  header.nav .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+  header.nav .btn-ghost:hover{border-color:var(--kuning);color:var(--kuning)}
+  header.nav .btn-primary{box-shadow:3px 3px 0 #000d26;border-color:#000d26}
+  .burger span{background:#fff}
+  /* hero abstrak */
+  .hero{color:#fff;isolation:isolate}
+  .hero::before{background:var(--abstrak);filter:saturate(1.1)}
+  .hero::after{opacity:.16;background-image:var(--grain);background-size:180px 180px;-webkit-mask-image:none;mask-image:none;mix-blend-mode:overlay}
+  .hero-tag{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#e6eeff;box-shadow:none;backdrop-filter:blur(6px)}
+  .hero-tag b{background:var(--kuning);color:#002460}
+  .hero h1{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.005em;line-height:.95;color:#fff;font-size:clamp(3rem,7vw,5.4rem)}
+  .hero h1 em{font-style:normal;color:var(--kuning);text-shadow:0 2px 24px rgba(0,26,70,.35)}
+  .hero .lead{color:#dbe6fb}
+  .hero .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.45)}
+  .hero .btn-ghost:hover{border-color:#fff}
+  .trust{color:#C2D7FF}
+  .trust svg{color:var(--kuning)}
+  .glow{background:radial-gradient(circle,rgba(255,222,89,.45),transparent 65%)}
+  /* judul seksi */
+  .sec-head h2,.aispot h2,.cta-box h2{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:0;line-height:.98;font-size:clamp(2.2rem,4.4vw,3.5rem)}
+  .sec-head h2 em,.aispot h2 em,.cta-box h2 em{font-style:normal}
+  .sec-head h2 em{color:var(--navy);background:linear-gradient(transparent 62%,rgba(255,222,89,.85) 62%);padding:0 .08em}
+  .plan h3,.plan .price .now,.step .num{font-family:var(--display);font-weight:800}
+  .step .num{color:var(--biru)}
+  .audience{background:#002460}
+  /* tile & spotlight AI: navy abstrak, bukan ungu */
+  .tile.ai{background:var(--abstrak)}
+  .tile.ai p{color:#dbe6fb}
+  .tile.ai .chatline .who{color:var(--kuning)}
+  .menu-item.ai .ic{background:linear-gradient(135deg,#003884,#5EA4EB)}
+  .aispot{background:
+      radial-gradient(35% 55% at 95% 15%, rgba(255,222,89,.55) 0%, rgba(255,222,89,0) 70%),
+      radial-gradient(45% 60% at 5% 100%, rgba(94,164,235,.55) 0%, rgba(94,164,235,0) 70%),
+      linear-gradient(150deg,#001a46,#003884 70%,#0d4fae)}
+  .aispot::before{background-image:var(--grain);background-size:180px 180px;opacity:.12;mix-blend-mode:overlay}
+  .aispot .eyebrow{color:var(--kuning)}
+  .aispot .eyebrow::before{background:var(--kuning)}
+  .aispot h2 em{color:var(--kuning)}
+  .aispot > .wrap p.big{color:#dbe6fb}
+  .ai-feats li .dot{color:var(--kuning)}
+  .chatbox .ch-head .av{background:var(--kuning);color:#002460}
+  .chatbox .ch-head small{color:#9fbbe6}
+  .msg.user{background:linear-gradient(135deg,#5EA4EB,#2a72cf)}
+  .msg.bot{color:#eef3ff}
+  .typing i{background:var(--kuning)}
+  /* harga */
+  .plan .price .old{color:#8a97ab}
+  .plan.pro{border:2px solid #002460;box-shadow:6px 6px 0 var(--kuning),0 24px 50px rgba(0,56,132,.16)}
+  .plan.elite{--accent:#002460}
+  .plan.elite li svg{color:#002460}
+  .ribbon{background:var(--kuning);color:#002460}
+  .trial-banner{background:linear-gradient(135deg,#FFF9DE,#FFF0A8);border-color:#f3dc6b;color:#3d3300}
+  .trial-banner svg{color:#002460}
+  .trial-tag,.tile .pill{background:#FFF6CC;color:#5a4a00;border-color:#f3dc6b}
+  /* CTA */
+  .cta-box{background:var(--abstrak);border-radius:28px}
+  .cta-box::before{background-image:var(--grain);background-size:180px 180px;opacity:.14;mix-blend-mode:overlay}
+  .cta-box p{color:#e6eeff}
+  .cta-box .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.5)}
+  /* footer */
+  footer{background:#001a46}
+  .foot-grid{grid-template-columns:1.6fr 1fr 1fr 1.2fr}
+  footer ul a:hover{color:var(--kuning)}
+  .foot-kontak{font-size:.86rem;color:#9fb0cf;margin-top:14px;line-height:1.7}
+  .foot-kontak a{color:#fff;border-bottom:1px solid rgba(255,222,89,.6)}
+  /* legal */
+  .legal{padding:90px 0;background:#fff;border-top:1px solid var(--line)}
+  .legal-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+  .legal-nav a{font-weight:700;font-size:.88rem;padding:.6em 1.1em;border-radius:10px;border:1.5px solid #002460;color:#002460;background:#fff;transition:background .2s,box-shadow .2s}
+  .legal-nav a:hover{background:var(--kuning);box-shadow:3px 3px 0 #002460}
+  .dok{max-width:820px;padding:36px 0;border-top:1px solid var(--line);scroll-margin-top:90px}
+  .dok h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.5rem);color:#002460;line-height:1}
+  .dok .tgl{font-family:var(--mono);font-size:.74rem;color:var(--sub);margin:10px 0 18px;letter-spacing:.04em}
+  .dok h3{font-size:1.04rem;font-weight:800;color:#002460;margin:26px 0 8px}
+  .dok p,.dok li{font-size:.95rem;color:#34435c;line-height:1.7}
+  .dok p{margin:0 0 10px}
+  .dok ul,.dok ol{margin:0 0 10px;padding-left:1.3em;display:grid;gap:6px}
+  .dok a{color:#003884;font-weight:600;border-bottom:1px solid #5EA4EB}
+  @media(max-width:900px){
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .foot-grid > div:first-child{grid-column:1/-1}
+    .nav-links.open{background:#002460;border-color:rgba(255,255,255,.1)}
+    .nav-links.open a{color:#fff}
+  }
+  @media(max-width:520px){
+    .legal{padding:64px 0}
+    .legal-nav a{flex:1 1 calc(50% - 10px);text-align:center}
+  }
+</style>
 </head>
 <body>
 
@@ -702,7 +819,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Akses penuh <b>Esseigma AI</b></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Analitik laba real-time</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Transaksi &amp; stok tanpa batas</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Cetak struk Bluetooth &amp; virtual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Cetak struk USB, Bluetooth &amp; virtual</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Riwayat penuh + tagihan supplier tanpa batas</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Multi-staf hingga 5 orang</li>
         </ul>
@@ -719,7 +836,7 @@
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Semua fitur di paket Pro</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Multi-staf tanpa batas</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Manajemen multi cabang / outlet</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Hingga 4 akun kasir untuk satu toko</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Backup data otomatis</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Priority support</li>
         </ul>
@@ -755,7 +872,6 @@
       <details class="reveal"><summary>Apakah Esseigma benar-benar gratis? <span class="plus" aria-hidden="true"></span></summary><p>Ya. Paket Basic gratis selamanya dengan fitur inti kasir, stok, dan tagihan. Kamu bisa upgrade ke Pro atau Elite kapan pun bisnismu butuh lebih.</p></details>
       <details class="reveal"><summary>Apakah ada masa coba gratis? <span class="plus" aria-hidden="true"></span></summary><p>Ada. Kamu bisa mencoba paket Pro gratis selama 14 hari dengan seluruh fitur premium, tanpa komitmen. Setelah masa coba, kamu bebas memilih untuk lanjut berlangganan atau kembali ke paket Basic.</p></details>
       <details class="reveal"><summary>Perangkat apa saja yang didukung? <span class="plus" aria-hidden="true"></span></summary><p>Esseigma berjalan di ponsel Android dan komputer desktop. Data toko tersimpan aman dan bisa kamu backup sendiri.</p></details>
-      <details class="reveal"><summary>Apakah data toko saya aman? <span class="plus" aria-hidden="true"></span></summary><p>Keamanan data adalah prioritas kami. Akses aplikasi dilindungi PIN dan verifikasi biometrik, data dienkripsi, dan kamu bisa membuat backup sendiri kapan saja agar catatan tokomu tidak pernah hilang. Data tokomu sepenuhnya milikmu — kami tidak memperjualbelikannya ke pihak mana pun.</p></details>
       <details class="reveal"><summary>Apakah bisa dipakai tanpa internet? <span class="plus" aria-hidden="true"></span></summary><p>Fitur kasir dan pencatatan dasar tetap bisa digunakan. Beberapa fitur seperti Esseigma AI dan Berita Pasar membutuhkan koneksi internet.</p></details>
       <details class="reveal"><summary>Apa itu Esseigma AI? <span class="plus" aria-hidden="true"></span></summary><p>Esseigma AI adalah asisten cerdas bawaan Esseigma (tersedia di paket Pro) yang membantumu menganalisis penjualan dan memberi saran bisnis dengan bahasa sehari-hari.</p></details>
       <details class="reveal"><summary>Apakah mendukung scan barcode dan cetak struk? <span class="plus" aria-hidden="true"></span></summary><p>Ya. Esseigma mendukung scanner barcode (USB/HID) serta pencetakan struk lewat Bluetooth, USB, maupun jaringan, dan pengiriman struk virtual.</p></details>
@@ -782,6 +898,161 @@
   </div>
 </section>
 
+<!-- ============ LEGAL: S&K, REFUND, PRIVASI, HAPUS AKUN ============ -->
+<section class="legal" id="legal">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:24px">
+      <span class="eyebrow">Legal</span>
+      <h2>Ketentuan &amp; Privasi</h2>
+    </div>
+    <nav class="legal-nav" aria-label="Dokumen legal">
+      <a href="#syarat">Syarat &amp; Ketentuan</a>
+      <a href="#refund">Kebijakan Refund</a>
+      <a href="#privasi">Kebijakan Privasi</a>
+      <a href="#hapus-akun">Hapus Akun</a>
+    </nav>
+
+    <!-- ===== SYARAT & KETENTUAN ===== -->
+    <article class="dok" id="syarat">
+      <h2>Syarat &amp; Ketentuan</h2>
+      <div class="tgl">Berlaku sejak 11 November 2026</div>
+      <h3>1. Definisi layanan</h3>
+      <p>Esseigma POS AI adalah aplikasi manajemen kasir digital (Point of Sales) untuk mencatat transaksi, mengelola inventaris, dan menyajikan analitik keuangan bagi pelaku usaha kecil dan menengah.</p>
+      <h3>2. Paket langganan</h3>
+      <ul>
+        <li><b>Basic</b>: gratis, dengan kapasitas inventaris maksimal 15 barang, maksimal 30 transaksi per bulan, dan riwayat penjualan 7 hari terakhir.</li>
+        <li><b>Uji coba (Trial) Pro</b>: 14 hari kalender, hanya satu kali per email dan per perangkat. Setelah berakhir, layanan kembali ke paket Basic.</li>
+        <li><b>Pro</b>: Esseigma AI, Analitik Laba, cetak struk USB dan Bluetooth, pemindai barcode, transaksi dan inventaris tanpa batas, serta catatan karyawan hingga 5 orang. Satu akun Pro aktif di satu perangkat; masuk di perangkat lain akan mengeluarkan akun dari perangkat sebelumnya.</li>
+        <li><b>Elite</b>: seluruh fitur Pro, catatan karyawan tanpa batas, hingga 4 akun kasir untuk satu toko yang sama, penggunaan di beberapa perangkat sekaligus, laporan per kasir, dan Priority Support. Elite ditujukan untuk satu toko, bukan beberapa toko dengan data terpisah.</li>
+      </ul>
+      <h3>3. Esseigma AI</h3>
+      <p>Esseigma AI tersedia bagi pengguna Trial, Pro, dan Elite dengan limit per 5 jam dan limit mingguan, serta batas gambar per 5 jam (Trial 2, Pro 5, Elite 10). Besaran limit dapat disesuaikan sewaktu-waktu. Jawaban Esseigma AI bersifat bantuan dan dapat keliru; keputusan usaha tetap menjadi tanggung jawab pengguna.</p>
+      <h3>4. Pembayaran &amp; masa aktif</h3>
+      <ul>
+        <li>Pembayaran diproses melalui Midtrans. Harga yang berlaku adalah harga yang tertera di aplikasi saat pembayaran; harga promo berlaku untuk 3 bulan pertama di setiap paket.</li>
+        <li>Langganan dibayar di muka untuk jumlah bulan yang dipilih dan <b>tidak diperpanjang otomatis</b>.</li>
+        <li>Peningkatan paket dapat dilakukan kapan saja dan berlaku setelah pembayaran dikonfirmasi. Biayanya mengikuti harga paket tujuan dan tidak dikurangi sisa masa aktif paket sebelumnya.</li>
+        <li>Penurunan paket tidak dapat dilakukan selama masa langganan berjalan. Untuk berhenti, cukup biarkan masa aktif berakhir.</li>
+        <li>Setelah masa aktif berakhir, tersedia masa tenggang 7 hari sebelum layanan kembali ke paket Basic.</li>
+      </ul>
+      <h3>5. Data &amp; keamanan</h3>
+      <p>Seluruh data transaksi, harga, dan inventaris adalah milik pengguna. Esseigma tidak pernah meminta kata sandi pengguna melalui pesan, email, maupun Esseigma AI. Pengguna bertanggung jawab atas keamanan perangkat dan kerahasiaan kata sandinya.</p>
+      <h3>6. Batasan tanggung jawab</h3>
+      <p>Esseigma POS AI adalah alat bantu administratif dan penghitungan. Kami tidak bertanggung jawab atas kesalahan finansial, kerugian operasional, atau kerusakan perangkat keras pihak ketiga yang digunakan bersama aplikasi. Sebagian fitur dapat dipakai offline, namun backup, Esseigma AI, dan pembayaran memerlukan internet.</p>
+      <h3>7. Hak kekayaan intelektual</h3>
+      <p>Desain antarmuka, kode program, dan merek Esseigma POS AI adalah milik Pengembang. Dilarang menggandakan, memodifikasi, atau menyalahgunakan sistem tanpa izin tertulis.</p>
+      <h3>8. Kontak</h3>
+      <p>Email: <a href="mailto:hello@esseigmaposai.com">hello@esseigmaposai.com</a>. Laporan dari pengguna Elite diprioritaskan.</p>
+    </article>
+
+    <!-- ===== REFUND ===== -->
+    <article class="dok" id="refund">
+      <h2>Kebijakan Pengembalian Dana</h2>
+      <div class="tgl">Berlaku sejak 11 November 2026</div>
+      <p>Langganan Esseigma POS AI adalah layanan digital yang langsung aktif setelah pembayaran dikonfirmasi. Karena itu, <b>pembayaran yang sudah berhasil bersifat final dan tidak dapat dikembalikan</b> (non-refundable), termasuk bila langganan tidak dipakai sampai habis.</p>
+      <p>Sebelum berlangganan, pengguna dapat mencoba seluruh fitur Pro <b>gratis selama 14 hari</b> melalui Trial Pro.</p>
+      <h3>Pengecualian</h3>
+      <ul>
+        <li><b>Tertagih dua kali</b> untuk pembelian yang sama.</li>
+        <li><b>Pembayaran berhasil tetapi paket tidak aktif</b> dalam 1×24 jam dan tidak dapat kami aktifkan.</li>
+      </ul>
+      <p>Untuk kedua kasus tersebut, kirim email ke <a href="mailto:hello@esseigmaposai.com?subject=Pengajuan%20Pengembalian%20Dana">hello@esseigmaposai.com</a> dari email akunmu, paling lama 7 hari setelah pembayaran, dengan menyertakan nomor pesanan (Order ID) Midtrans dan bukti pembayaran. Pengajuan yang disetujui dikembalikan melalui metode pembayaran semula dalam waktu sekitar 7–14 hari kerja, mengikuti proses Midtrans dan bank atau penyedia e-wallet terkait.</p>
+    </article>
+
+    <!-- ===== PRIVASI ===== -->
+    <article class="dok" id="privasi">
+      <h2>Kebijakan Privasi</h2>
+      <div class="tgl">Berlaku sejak 11 November 2026</div>
+      <p>Kebijakan ini menjelaskan data apa yang dikumpulkan aplikasi Esseigma POS AI ("aplikasi", "kami"), untuk apa data itu dipakai, di mana disimpan, dan bagaimana kamu bisa menghapusnya. Aplikasi ini ditujukan untuk pemilik dan pengelola usaha berusia 18 tahun ke atas.</p>
+      <h3>1. Data yang kami kumpulkan</h3>
+      <ul>
+        <li><b>Data akun:</b> nama, alamat email, nama usaha, dan kata sandi (disimpan terenkripsi oleh penyedia layanan login kami).</li>
+        <li><b>Data usaha yang kamu masukkan:</b> transaksi penjualan, stok barang, harga, tagihan pemasok, arus kas, data karyawan (nama, posisi, jam kerja, nomor HP, gaji), akun kasir, serta foto bukti transaksi dan foto barang.</li>
+        <li><b>Percakapan Esseigma AI:</b> pertanyaanmu, jawaban AI, dan lampiran yang kamu kirim (foto, dokumen, rekaman suara). Agar jawabannya relevan, ringkasan angka usahamu (omzet, stok, tagihan) ikut dikirim bersama pertanyaan. Nama pelanggan tidak ikut dikirim.</li>
+        <li><b>Data langganan:</b> paket, tanggal berlaku, dan status pembayaran. Data kartu atau rekening tidak pernah kami terima atau simpan.</li>
+        <li><b>Data perangkat:</b> pengenal acak perangkat untuk aturan jumlah perangkat per akun, serta catatan kesalahan teknis (log) yang tersimpan di HP-mu.</li>
+        <li><b>Sidik trial gratis:</b> sidik acak (hash) dari alamat email dan perangkat, yang tidak dapat dikembalikan menjadi data aslinya, dan hanya dipakai agar trial gratis digunakan satu kali per pengguna dan per perangkat.</li>
+      </ul>
+      <h3>2. Izin yang diminta aplikasi</h3>
+      <ul>
+        <li><b>Kamera:</b> memotret bukti transaksi, foto barang, dan memindai barcode.</li>
+        <li><b>Mikrofon:</b> merekam pertanyaan suara untuk Esseigma AI, hanya saat kamu menekan tombol rekam.</li>
+        <li><b>Bluetooth dan USB:</b> menyambungkan printer struk dan scanner barcode.</li>
+        <li><b>Notifikasi:</b> pengingat tagihan, stok menipis, dan langganan.</li>
+        <li><b>Internet:</b> login, backup data, Esseigma AI, dan pembayaran.</li>
+      </ul>
+      <p>Semua izin dapat ditolak atau dicabut lewat pengaturan HP; hanya fitur yang membutuhkan izin itu yang tidak bisa dipakai.</p>
+      <h3>3. Untuk apa data dipakai</h3>
+      <ul>
+        <li>Menjalankan fitur aplikasi: kasir, stok, laporan, analitik, dan struk.</li>
+        <li>Menyimpan cadangan (backup) agar data tidak hilang saat ganti HP.</li>
+        <li>Menjawab pertanyaan di Esseigma AI.</li>
+        <li>Memproses langganan dan menentukan fitur sesuai paket.</li>
+        <li>Mengirim kode verifikasi (OTP), pemberitahuan penting tentang akun, dan memperbaiki gangguan teknis.</li>
+      </ul>
+      <p>Kami <b>tidak menjual</b> data dan <b>tidak menampilkan iklan</b>. Data usaha tidak dibagikan ke pihak lain di luar kebijakan ini, kecuali dengan persetujuanmu atau bila diwajibkan hukum.</p>
+      <h3>4. Pihak ketiga yang memproses data</h3>
+      <ul>
+        <li><b>Supabase</b>: penyimpanan akun, backup data, dan foto.</li>
+        <li><b>Google (Gemini API)</b>: memproses pertanyaan dan lampiran Esseigma AI.</li>
+        <li><b>Midtrans</b>: memproses pembayaran langganan.</li>
+        <li><b>Brevo</b>: mengirim email kode verifikasi (OTP) dan lupa kata sandi.</li>
+        <li><b>Resend</b>: mengirim email pemberitahuan akun, termasuk pemberitahuan penghapusan akun.</li>
+      </ul>
+      <p>Setiap pihak hanya menerima data yang diperlukan untuk tugasnya.</p>
+      <h3>5. Penyimpanan dan keamanan</h3>
+      <p>Data tersimpan di HP-mu dan di server cloud kami. Pengiriman data memakai koneksi terenkripsi (HTTPS). Akses data di server dibatasi per akun, sehingga satu akun tidak dapat membaca data akun lain. Kunci rahasia layanan pihak ketiga hanya tersimpan di server.</p>
+      <h3>6. Lama penyimpanan</h3>
+      <p>Data disimpan selama akun aktif. Setelah penghapusan diajukan, akun dan datanya dihapus permanen dari server 7 hari kemudian. Salinan cadangan sistem milik penyedia server terhapus otomatis paling lama dalam 30 hari. Catatan pembayaran di Midtrans disimpan oleh Midtrans sesuai kewajiban hukumnya. Sidik trial gratis (hash) tetap disimpan setelah akun dihapus untuk mencegah penyalahgunaan trial.</p>
+      <h3>7. Hak kamu</h3>
+      <ul>
+        <li>Melihat dan mengubah data akun lewat menu Profil dan Pengaturan Akun.</li>
+        <li>Menghapus akun beserta seluruh data. Lihat <a href="#hapus-akun">Hapus Akun</a>.</li>
+        <li>Meminta salinan data atau bertanya tentang datamu lewat email di bawah.</li>
+      </ul>
+      <h3>8. Perubahan kebijakan</h3>
+      <p>Bila kebijakan ini berubah, versi terbaru dan tanggal berlakunya dicantumkan di halaman ini.</p>
+      <h3>9. Kontak</h3>
+      <p>Email: <a href="mailto:hello@esseigmaposai.com">hello@esseigmaposai.com</a> · Malang, Jawa Timur, Indonesia</p>
+    </article>
+
+    <!-- ===== HAPUS AKUN ===== -->
+    <article class="dok" id="hapus-akun">
+      <h2>Hapus Akun</h2>
+      <p>Kamu dapat menghapus akun Esseigma POS AI beserta seluruh datanya kapan saja.</p>
+      <h3>Cara 1: dari dalam aplikasi</h3>
+      <ol>
+        <li>Buka aplikasi Esseigma POS AI dan masuk sebagai Pemilik.</li>
+        <li>Buka <b>Profil → Bantuan</b>, lalu ketuk topik <b>Cara menghapus akun</b>.</li>
+        <li>Ketuk <b>Ajukan Hapus Akun</b>, centang <b>Setuju</b>, lalu ketuk <b>Ajukan</b>.</li>
+      </ol>
+      <h3>Cara 2: tanpa aplikasi</h3>
+      <p>Kirim email ke <a href="mailto:hello@esseigmaposai.com?subject=Permintaan%20Hapus%20Akun">hello@esseigmaposai.com</a> <b>dari alamat email yang terdaftar di akunmu</b>, dengan judul <b>Permintaan Hapus Akun</b>. Permintaan diproses paling lama 7 hari kerja. Jangan pernah mengirim kata sandi; kami tidak akan memintanya.</p>
+      <h3>Setelah permintaan diajukan</h3>
+      <ul>
+        <li>Akun <b>terkunci selama 7 hari</b>: data tidak bisa ditambah atau diubah, dan Esseigma AI tidak bisa dipakai. Kamu tetap bisa keluar akun atau masuk dengan akun lain.</li>
+        <li>Email pemberitahuan berisi tanggal penghapusan dikirim ke email akunmu.</li>
+        <li>Berubah pikiran? Buka aplikasi lalu ketuk <b>Batalkan Penghapusan</b> sebelum tanggal itu.</li>
+        <li>Setelah 7 hari, akun dan datanya dihapus permanen secara otomatis, dan email konfirmasi dikirim.</li>
+      </ul>
+      <h3>Data yang dihapus</h3>
+      <ul>
+        <li>Akun login (nama, email, nama usaha).</li>
+        <li>Semua backup data usaha: transaksi, stok, tagihan, arus kas, karyawan, dan akun kasir.</li>
+        <li>Semua foto yang tersimpan di server.</li>
+        <li>Percakapan Esseigma AI dan catatan pemakaian limitnya.</li>
+        <li>Status dan riwayat langganan di server kami. Langganan yang masih aktif ikut berakhir dan tidak dapat dikembalikan.</li>
+      </ul>
+      <h3>Data yang masih disimpan sementara</h3>
+      <ul>
+        <li>Salinan cadangan sistem milik penyedia server terhapus otomatis paling lama dalam 30 hari.</li>
+        <li>Catatan pembayaran di Midtrans disimpan oleh Midtrans sesuai kewajiban hukumnya.</li>
+        <li>Sidik trial gratis (hash) untuk mencegah penyalahgunaan trial.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
@@ -789,6 +1060,7 @@
       <div>
         <a href="#top" class="brand"><span class="brand-chip"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAi8UlEQVR42u19eXiTVdr+85zzvtnapC10YZV9kVbWuiAIDeK44rgl4IYwIlXH7ZsZ/Tmj8yVxGXX8xhHGEcuoMCoIiY7ihoqYFgREUhZpWSw7baEt0L1N8r7nPL8/krINS1FaCuS+rl65rjZXk/fcz7mf5TznHIAYYoghhhhiiCGGGGKIIYYYYoghhhhiiCGGGGKIIYYYYoghhhhiiCGGGGKI4dwBnuwNfr9f+clqRcg/vwdq2DCA2tphZLejHjObGM59BSAizJ45U/n9jROfMhmVC+pq63XGOZ6Pg6QJQUkJcTzJomybfKfvRa/XIRGRzoVnU45DPyICzppl4DMX/HjDqrUlw1CGABg//2YIIohQGNolt4cxwzsXeL09/+p2AwHAuWwASC6XCydP9gTHPTb7HiDj8rwvVxvAZmCgEwKeVxYAoGlCTUhUExOgCm66mjwe9znzeMrx/uB2u8ntdiMA7C6rlXl3G4zjFi0OaIYOCarQRGRgTgeIzgypp6AAMqSxhCQrtxhVBSD3nLJv5QQPTkTEELGWiO56YPzQ9/burR63fuMWjdksqhTy9HGBrSApdLjNyajh4UnzIEQEEgI0TUBjWAMAI4ALADznuAFEH156vV7eZARL1/d790BD+Ma95WUSFc7ol85eRCBdSAhrslWMgLEI4ZwDNyiKlBJINuMZol9N1wnONSgne4PT6RReL3FErH333e/vDvRM/ndJ+f5rUQoVGGM/W8IRATQdrFYrS2uXyMKa1mI2gAAgCSCsSwgLCVX1QRD79ulgViUzGxUCYCczBAIATRfnnwFEjACF10vc6cSaD79alt0lOW7D+x+tTEIjSEJkPyeyJl1IW4KN2S++oPCyi7r/qAs9kTHQANjpn/gA0BgWsGdfLRbvq6X1G0tt6UMvztq8pxZ2bN4OwKSGFqNCkvB4JkQEEBIyGgK4zxkfoDT3jU4nCofXy2/51eU1l16iz22sDT/88RcrBU+KA/Ez4gEEIK4J6tU59cCTdwz9HSLuxVbKrYjIvLNSPPHkq18a+nU03bzzAF24aV2BxDgjEDI8lqoREOhNCuA5zxSgCV6HQyK6w0TuR8dflyE279738MaN23RujVOELqC56SERATMovLKqUn761YYrrhneJ5eIbnG6C7c4HAD/9FXIFnviXABEDDXRSETzJr+waLRCPd2bt5a117SQQFXlx4pvhIj+7nwJAo+TGWCWO5fnurN+n7d2R7sDNcGJZXv3hpnFZJC6bLYRSF0As8Wzoi07ws/NXt5vc3G3gT7PsA0OR4Ehz2PXW1gBcObMfPWb0m2IiOsBYP2LcwPbF63cOXf5qi22kNQkRX0RHZathjUBuZALAFnnpwI0ZQZExKOvi3t2TL7zyWe9DAxCImPNzwwQQWoCeHuruiRvjUhOMP5td2Vjedck87cOh5f7fM4Wi7iiZVwNAMDrJf720unKk3dkfu56a8mdW0ur/7mjaFcnFqeiFNGYACOGENYlnGtgP3MANb/frwDAu791XPTYpNtHMagPAcNTTAkQQEhCZjbg4sXrO/m+KppHRNcPGOAgImKtMQBOJ4ov//Fo6B6X3+S5d9RnjzoHzxs8+EJFHqjTmMIPFqoIAHTt7MgCiAibfk67AjTBbrfrLpdf8Xjsr32zppiKSipfXbqsALnVzIVovisAIgBVYdU1NeEZvkBKYpLhfo+n/+cH2n1hJKJway26zHZnhXfkupTHbhvycdH2yhu2FSVeWBcOSeScUfR76kK2SbIBgPl8AD7wHRRXgOaNm/JLPtztyRKdcgLq2CFd/vk/0781FZd3+7/tW3ZqzGpWpd78crEUApgtXi3aukN/8S282Ju39V7n6F5v/eOAi0XmXssbASLKnJwAR8QVW8obA9+vLe67eu0m4O1sTOhRFyAk5OaeUbIZALBcgIPfAxF1ABBHvU8BoEQACCJiXYsZAAKSv6+fXC4Xcz9sX3z5oF7V9z0511YVDApmMvJTMwKJ3Gxku7bsTlu8YueMEBEzALznS4ew0wmtor1Tpw7Tk5KI90oJuodnXmAvKq7oWtvYICGaGWpnMAYIBEhFRA0A5FFk2wCgV/7uOr1wr64s+rFW+6E4fH9KiuHmzXu0/Ien/eSY/kgfDRHoWBNJ+aVfzG6360TEfT7feofDceeWB69+77lXP0+sD4UFGgycZPMHTQKwoELy7XlLeXrftOkP3zzgW6cTt0aDTtEKKkAAIIlo19WX91k455PVvwEgDsTkEXUAcLe6AWRmokZEKQAwZl1xSN9UrqlLtmmN89Y1jO/awXhrQZkxXF6nKLZkk3z9u3qz2Qqoa6Iid8sWcLv7tIwCHDZwwuX3K07Ez8vrtDu2llS+/+4HKxJCmiZQUXhzMwMiAlQUpklduF7/mu/cWzUZAZ5GdEdXblqhTuRyIQDIv7354bPde6Tetm5DsB1JHQgQNF1v1UIQESEiUnV1dfvv9sU/8oK/7uKhveOv3VpmgMqgAdR4gs83NUJwzQGpcFQZAiiIIKTQGxsEV1CGh7Sro9OeBRwLHrtdzwmQmhqvLrxudLfbrxgxoNrIDBxBnhJpJAmYQWGVFZV8beHep1YVHXiByK24XP5W6UYhtxsQkXL/9Uj83dcNRq4JQBYJRTQ96ntdrTfzXS5iNputwcjArFvir52+cJ/uX1+urd9aoe+r2K9zvUHEqYAGRqAAAYAEBGBGFVm3ZIU50gdAqxgAAEB2JmpTcwLqLcN7LxzQI+GOTl1T98j6sGCc0anMXUmA3GLAxd8EtHc+3/SkBvCIx2PXCwrI0BrBIICDA8CWz75d83tdMp0kBUnqQtN0vTX7ARCR3B4gRNY4tgd/YlA78WBm/4Qqs0FhZhU5Z6gQICdABEAEjICiVawLErk+YAC0ngEAAMzMztQenvaFcfpjV35xU1bPv2QMHqDIyrowU3nzBZwIJDLEeCPO/mgl3fPc11llZWXxGRmot0Z9wOV6EBFRHz6gS+m4G0YowEzxZErkOrGkurq6Vu2HQkDy+6UCLmI391VmiJC+1BgXz3UJx6m9I0hJoKoAA7sqienpcawp224VAwAAmP5Ine7wevkrv81a/phz6E8dO6QaqSEoGGfNNgKSEtBkUGqqDsgfAjuuX7im5m0iMjc1qrTkoLvdWRIA4PmH7KW/ubbPa8jFqzJU/08p5eyePXtKcLtbrTHA4SVuzwLxybh802urtHkNkt3UUF0lOGPKMQeTiBhnLBzWQgaUPoDu2mEBbssEgf8tXU4RbSRZfaA2dNvywoEfzPnPyt5hoUlkzW8kkboEbrXwrUU79Xc/WecYNbgLEtG9Ph/UNwVILecGAKLrBA83/b4SIFJqwdYRARcR8wBIf+4OY6F54Nvba5Xxe/bsF0bD8QNrKSWoqhEZ49WXP7Hx7zVvZQiX6/gTpsVmktPpFDk5AbWd1bg+vYfptsyhPSsoBBSpUp1CqVgXgIlxfPGSdeKpmUuu++aHjR2cThQz8/OVFifA5WI5OQEVhuVEfka7mvWZRMQCAVKhGaXY4898L/e4Afy5O4yFli6zt9eo44uLyzSjgZ80q5JE0CUBlRmTkhObMcQtPYh+xe3Ogp/2NHye/cwXv8r154eV1ASDHm7+8jEiAEqSKJn87d2jVk17eKQTEYtdLmIeD7ap+my0j1IeVqaFU1Uqr5e4sxDok3H5pl1i0Nvbq5XxxaVlmlnl6olyKowoAAFX0d4/ruxiW93FF/Vpv9tFxDx47HFq8YDK7c4STp+P+na03PPnB67IHTiwr0HfX6sx9RTiAQIAzhjpGn75zYbhHy/b9QERpQPkstZaNGoO/H5SoqukHXbrNBGz882ISK5T+I5er5c7HSA/GZZv2k2D3tperYwvLinTTCpXjkd+1CNJXZIOiCRJwoDO3JbR26KerGzV4oOHiOSIvO4dMzBt/JTbL8nt1aubSg1hnfHmf7wUBBhn5D9t2hp8zbf+0v8s3fZrj8euz87NNbQV8u121IkoeVO1fHfhFvj3MxMGvFbg9RrAHfHnzSPfIf25O4zFHQe9va1SmVBSUh42G7hKdGy9ZAxB0wQJ4KxjapIiBBDjClXVi5kApnJwudiJCmittOTqFH6/X0HE8kljL3BeckkPv2q0IGmawOYGVNF4gCcnGBfn5uv/O/O7O9/6bO2lk+32YPQhz6Ts8wj51e2LamD+3DU09mN/WWOtNE/+svPNM8eNy+dNQd2Jov0m8gstnWdvrYrOfAMzSDq2KnKGEArruslqReel1qLe8XVPdOtshTiLkV75vGoWItaNhix2IhfUagNnt9t1r5e4zWaryOikjx99ee/tSCqClKdU4xdEyEyMFe/cN+DHLTUfENGIwLhx3HWGjKBpnYKouv2mGpv33dViTMHWCq1jIjfvLi7XSuqVe/zBjDcvXbhQbZrlx/L5PgfI5StWmAotXWZvq1bHlxSXh02GY/t8IgCFIzSGdV0xmpUJmZaKG3srU+4fmfRyRgf++2uGmNhdl8Z1BADIyso6s0Hg0ZiaE1Bzpg7T99bINx549oupH3+6PMyT4w0H++2aIwaMATU0amlJyeqzf7im4L7r+g7JynJDbq5btOamTSJSECOyv7Ea5s9ZLcZs2FahJVlUVZcECEAhXeqdOqWqneP0f19YvT175co+GrgBmoIyr5ciPv/TfPPujoPe2lalTIiQf5yZDwAKQwiGha6aTMpdw23lV10ATkTM8/u3m+z2HsHyOt0liPI6WtXcky2k4RmYMYhOHyOvQ1mwYvcbz7yeN2n1+iKdx5uUU+kuRgQiTcqExMTqkUM7Z3/+11s/mJoTUGdmZ2qt6/NrkjdWWue/u1qM2bS9QkuKV1VNHHLYiEBhTWodO6UaOlpC73Qr/eS+wkKH3hSZeQDIu2KFqRQyZ+2qVceXlJZpZsPxo33OEIIhoRstRmXiiIRye+cI+QEidRiA7nYDnkpmpLS2AUQreRIRNaKC7MWBC2h3RfWkivJyHc0mpbnLxwSIqCA2VNckVdd2nP2fpdvwlit6+lq6n/Aw2Y+QX22d/+6aY5MflWs0qMxQWlquUafUibzzTTCuZ/6Ul3zDpK8QyJ+Va1xnHDFrV506fk9pedhs4Ced+UaLSblnhK08q7PmRDTkBYjUzEivQPTrEQeAZm1hPyN+ExHJ6/UiOjeI3lT/wLBBXRZYE9pxCIc1ZKy5LAAgYzqTctWKDZZvftg9Sydyer0Oxesl3sLkC6Lq9hsqrfPfCRyf/MO/qlFh6p7SMq2kQZ24NJzxltcBRG7g68wjZ++qU8eXlpZpxpPIfmNQFyazUbnncltFVmdwIBry6Ejym8a32a7wjG709noLDE5nRpiIHvr9ayv+8cprn+qsXTwjgGaXi5ExoLAmTBLZ//351uBvbxowDBE2EQE73U0kh8t+QaV1/pzVYszmHfu0pDjluOQfNdgU1KXevXuqGq/Xvcw5N1SB+dGdO8o0UyTVOz75IV03WUzKb0YmlF/RKSL73oICgzMjI/xLnumMnvjg870uXH6/ktW9+6oe3RLDpZU0dkPBdsGMKlBzjVMSoMqZrguxonCvurG0qmTdN32+80AWh7x/0+knn5ILKo3z5qwWV24+ycw/lg0oDFlVZR01CsPIygZ52YH91UJVGD/WZDycfLPFrEwemVA+qtMhn39VWtovjnfOeBXNY7fr6PRBvw625x3XXfjU8OEXKRTUgTHWTAmINJGgSVUqK/ZB0baqFz5bufNJ9oxdd3i97HTJ/qGZD/PnrBZXbt4RIV9vPvmHjIAzFgw2ilAwKDhDfjwljpAvdHOcWZk0wlbRRP6xZP+sNQAAAPI65GiXX7k9q9dfBqenPp3aKS0sT3n5GICZDbj8u/W6b+HmFyob6X98TqfICZB6unz+j/ut8+esEWM274iketoJUlfO8ISLhojAEY+twAQAnDeRb1LuvcJWMaqz5mgiH08T+WckCzhBZiCyOwXUGdmZz9/+zBdd/N/j/XtLd4dZXJxB6nozlmApsrHTopJvcQGU1tSOzQkEXsvORA2A8Oe0lkdr+zoRtV+7H7zz1ogxP+2s0JLiji/7iAiSpKxuEMJiQEXhHAU1XyUIokWeoK6b48zKvVfYKkZ0OBTwnU7y24wCNBlBztRhBEA498/XfvO7u4fXm6SiUDgssJlrBiQloMGgNtTX6KsL9vxq3dKa14moncvlbtYumSPIp0MB348HwDtvrRhTtPPQzD8e+ZquS+QGNmJgmmpQFWzUhFQYNp/8SLSvx8WblamjbeUR8rFFyG8zCnDYAOrRwyg+bCBStu+umP3mnKVGDYVAzpvVXUxCArcYlP17yrQfNqRN+cPreZ/8zeP5FCBLAQC9mbLPmvL8tfut8+evFWOKdlRoiSeY+QwRwpqm29q1VxKU0OZruobnpbezPjh/TTAlWNcgTEaFi5P0xzb5fEucWblvlK380tSIzy8oIAMihltizBm0MTidKFx+UiyI8ydcP2DSVWMHh1RivLlHkSBDICEIBMGYYV1h0rUXhiM18VOoVCJKour2qysi5G9uIl8/Afm6rllsCUrXdrxoSFfD+PSORvfVvdSJky63HlBNJh4M6YIzPGZI0+TzG4KaiIs3KdlZh8gnIjUjo2XIb5MGEMkMUJ+aE1BHp3ecP6R/8qTuPTtXivqwRHbikBARARGkrGwQU+6yq89kX+rO6JG6xOslnpWVJZpFPgBQSYklf1/8h/PXhsf8tGNf+KDPx+PPfIvVpvZIVremYdUtEy4yrvskUGJBxC9HdYIJ945KqDSYI0agHHX+BBGAyhEagroeb7XwqaNtFZekHCK/JWS/zRsAQKS72OUtMDx/38j5147o+vygIf04NWg6O4E/RSCS1Y1y3PWXKY/ddbHLzNCD6A45HM0rizb959yfwjJvi15XE2JgURmI48k+ayI/QemVom5N4zU3TRnRviAnQOqNmZ0bogQuGtUJJkwdnXDAaDHyxrDQFQUPnjSpKAj1QaFb481K9mhb+SUpLevzzxoDAABwO9LJ4fXyaQ9fGcq+eShAQwiOZwCMIclGTQ67eIBy69X93BkX2J4Z9b9+hchNzV4hjLTUg93eI/jldxvHd7XSgqTUFENYF9rRfQsR8oVmsSYovTsYizobgwfJj2QekW30USK/vrwD3J49OvGAyWxUGhsjSqBEZ7413qQ8kGUrv7gVZ/5ZYQDTpxcxn9Mp5izaoH/y3RYAowL/tVZEETJkY1h2vqAzDr4w2TXpV/09o11+JdeddcrLw00tXN88Mbg+rWrr3SkmbUFyWpoa1nStyQYYIoTDmm6xWtW+HQxbUrH61omXWI8g/7D/p0WDuK8vS4MJD2QlVMbFmXhDSGj1QV2zWs3KA3Zb+dDk1if/jK8FnAhNgzlzwbrLZiwofGdNflEvtHA8IqUmAKZwkA1BrV1Kijqkf+pLi6c7nxw2NUcN5EzVf0lvQNM6/ZsL9sUXJ9je3R9Uf72/rCJsNHBDUBNanNWq9ulg2NqVN/76jkuthcci/6j4Qo0qwlWBcjl/1vfBJIYIky4zVwxrZdlv8woQiA5mdX340vyfDny4ZXNJH2ZiR64PEADjkYUgg0786SlZjd9McywGIJw6bBj80sYQpxOFwwdsyk3JdckVRXe1N2kLktNSDXUNekO8zab2SzNs6XmQ/MAJyT/KHSzKTGV3TLjEsmbCJeb8YSkw4UyR3yYVwOv1cqfTKYjosmkfFH7gfuXzzlWhRh1NqnL4YY6ICCCFVBp0eGjKVeGXHxk5hYNvXm5uCtrtp++QKYeXuM8J8jVvYVxJYq93MN50c3vUN3c3B2+7dfCxZb8ZNQZJREYoKgLs2zd0eCt5a6NNKQARcV/kNevTFSW+l17/unNVY53OzIYjyAdEICkFC0p03jJCe+iOwVMUxDnu00w+AIDPicLhBfaQM6NuzbLdk3ola67u8aHxEfIDp0R+1HAlETF0g4Zz+mhnkvw2pQBEhNMXFhkeva5vaManBX9966ONjwdW5Ad5coJJhI9cC2AIxAXi5Rf3DT1w66B7J4zpOycnJ6Bmt2A72NFb0ZqU6pf8v6ag80yOe5spBc+cma88mp0Z+ps3f8Ir7wUmFm3cqvN2NqMIH3bMDAEwhYGsaxQdunWtSu/V/rEJY/rOmdrC5B8kighzAJSpAOKXNpu0lRtH2oQLyAlECNy2v2H8qvXls3ZuLU7jcUYuhDx0OQUBcJWDrKoL9u3fV7n72v5vvv67MXMenvaFcWZ2Zutc5IRI2YjamZTsc84AvF7i2ZmZGhGNf/vD9bM/XPC9McykOPr8eKYwEPWNevvERNNTk4eXvnj/FV87HF4+/ZFrdThHrm8571wAESkIIIhoQs6nm9/82xtfGjUjk6goRxwuxRgD2RjWE4wW5cmHr94z8epeDkRcHt2CLmI0noUKQETodBcyQKQ//mv59X95+7u4Rj2ssaNOFkOGIENh3WowKfdPGrX3D+MH3oaIy3MCAfWXBGExnEEFaDpwOs9jD/9lTv5TOb78m3dt261za5xBCHFEuodCSospTrl2TMbe27K6RcmnU06/YmgjCnAY+fp3G8ufyvth53PFO0rN3GriR+8MYohShkG2S03c1CPN5Li4f+dlU3MCMfLPZgPw+YAt8dj1qiA99daHPz731VcBncwKCkFHlHm5qoDcXx0efflAJeePV3/90kP271yztptaa+tXM42ZObxe7nB4Of2C00DOGxcQCATU6ImXj//5zVXPzZrzrc6SLDwS8R8K5JnKQVTWav0u7GV6+t5LVo8d0uFNl8uvuCd1D3kmt42Bc7mOrODhWXqXotKaswWdPllQUGC454VFVy1YtJHQohIhw8PXeBlnIGsbtAs6d1T/9KB97dghHW5FxB3RkmmbSPei9ycJIurmW1oUF9i0GzN7dC92XtWr+ud2IJ/TLiBCnhvI6+DvLa+d8eWSoqzqyv0CTUb1v9O9oJ6SnKLeeUvm2olX9b45Sr7SVoovLiLmdKL4u3fl8BmfbM6b81nh99X1ppWqCtcDAOTk5CsxBThCKl0s2vevfLRs5xuLlm6bXLGnTPD4I4M+RATSNBEXn6gMv6TX6qz+ibch4o6m3vy2MFgOr5d7EOS83CL73C83vfNNXl6Xhl17Qo88eYdxxNAuZoDINfMxAzgM6enpSESmzaV1r+XMXz05/4cCjSdb1aMjfiQSBCp06pi0JrWdftvVo/tvd/n9it3eNsgHAIBC4EQgr3jwh1sLt9d3aQjX1UPnNMva9T8tSLFmfg3gYp9++qmIGcBBXxnZ/VsTpBdfnLVq8lcLV4Z5hwSDOOrcfa5yEGVV+rgbRxlfenTUygFdrdunTfvJ+Ki9b6itDJTL71c8dnu4aGrVVckJibdU7tygs0SzGp+QhNvKKvMRcTc4XAaPxxM+mwyAteSAOZ0Z4ZffWZZ621MfjZz7WUCydvFMHrWfjiscRHm1NvKKIcY/3Xfpggu7xD/t8Hr5Y4+2HfKJCCE3F4jIlhvYPWZHaVVHNKsgGzXsmGQC55gBViLCqUnjzro1iRYxAH9ktuhENSlb9+nzvs/fMTis1RMpXDm4uyfa0iUq67ShmQPUJ6aMWHBZ3/Z3IeL+AYWF1MZGknk8Hh0AelTUaI+vXbZOV60mBUIadEiMozGX9NQQkc42/98iLsDlIhbdR5+S89kG3yL/ptE1VVU6izMph98riJwBBDW9R+/uquOGgR+Pu6zLRESsa63bQU5p9keOXYlfur78oZw5SwHbxTMiAAhp0L1DEl5/WTcDAMCIESY8rxWAiDA3cnpnp7z15d4Z760avXXrTo3Fm48kPxrxc5OZMtI7fHxFV+NERKyL7gtsU0FUbi5wRJSNlZXtP1m2bXxJeTUnhqiHNcHTktW1RTtXAMAMcLmYz5eun9cG4PYVqks8dr1ob+Nrz85clrVu7cYwb2+N3iB2iHwQQijcyK4e2X/zULXx7pEjL6zzer3M6Wxb5PujWQgRpc75vuLtf81dapIcJFM4UlhQYqIN0lJtJYi4bdieTrytnVvcqi5gak5A9Tgzwk+8sjjd+cePBq0t2C5YklURR122yBiQ2Ncg77r7cv7PP1650GrAOpefFGcbSfeivX/g9RaodntGmIhSc3/c582Zs3J0TU2txDhT5PwiKcFqYHTVxT2UryILXGdlU8ppMYBId2ymFti466IX5xZ+uGlzcU9kUhAeuamXcQRR3UhXX3Op+shdQ1+1KPCnKW8EVHcWCHCdqUOf3QAQvQfKc7D3D5yIYSJKm/31lvkz5nw/OpC/UePtrarQRSRz0XRIscXhtSP6xSEi+f0Eds95aADRGr1GRBnPzA78JzdvQ+9QOKijUVXkEWVeBFkbFIMG9tPG35jx6tCe7f7Y9LeZ2W1jMFSOENbJsnDhQqVxRcnTYx/7cMymovJhJbtKNZ5sU4UW6U6WQkqwWPiuisoSjvSXaKwgzzsFICJ05+YyIhr0/uJt3pz3lvXeV12lHx30McZA1gf1vv26K7df13/eDYPU6YtWbu2bZBFCkvGMSWd5dRBWrd8Fe/dV80+WrA89/cCvs95fUvL483PLSGv4/KJd+2ohWF2l88Q4VWjR7mQEICHJYLKw5BTb/gu7WpcAEHo8eH65ACLCzOyZSsGsB7SRK0vfeDYnr3fp3gqNJ8VHB+uIdwNwxoOheti5t+qGP86qvoYBqYAg4AztTUAAqGvUYE9FLVTWhSCkpsg//H2R1Wo0qgdCGui1tQIMHFicWTn8eRAQiABVIBie3onl7dsXn5yMNU2xw3ljAG63T82fmR2+7+Wvrr3HvaBbaXGZYAlmRej/fROIlARgVHHXniqYMXdFAucMSMozu4gevYqSorMaGAOSghobGgQoHFickUuK3MHzXyYqJVgUBcZe1sfWvn37s7oj+ecYAOYESMnOxPAXq7ZfN+39dXP27d2XiAaUkQM26HiSAagwAAVIEgHwtjFbCCh6JakAYAhoMnCSFDHaYysfAOdYE9KCVVV1fwWAxkh2e3a6gFOOvF0uwuxIV891Xy4vnrMkb32iBrqAZtwGRhSxAwJsMz9w2CsAIJ30olMiYAxt7eKD9z884yNE1KPXzcI5bwBExByOQoWIbvz7/B/nvvVeXmIjCAGKekqXRJ/NQAAAXcDQvqn8tZcmJAEAuM7AZdKtbgBEhE6nD9PT0/l7i7dOf/6NxQn1ekhnJgMncT615yOAIEjvmSpuGttPO6yUcO7GAJGIP1/J9zm1u575YvKnS7ck1dTWCjSbuBTy7O2I/Dn0IwBpOg0f2M3cOSVFAQBI98G56wKICLNn5iv5MzO19/1FD20vrv1HfWWVlRk4I0kI5xmkJGlIsOGKNUXPAsAOABdzOECekwZARIhuN87MztT2VIUf+uzbLdNWrigkUhnR+TTtD85+BAgL6t0zDdZuKl6OiA2jXVnsbM0ATmgAiJFNHOR2m4jo0b/PXTXt/Q+XEcUbkBCbfaHDuSb/oOvQu6ONHrx1WDwiNvsE0rMuBvhfScyJKIgo7mXv+mdeeduPZDUCcsZAEuD5JwDAOQcKanDZoF5465UZnIjAnZUFnnPRADxuN5SUlFhu/H8fP/557kYuRVgD4Iw0IaOVk/MOmq4LMFqU5YHNc+COjO8BXAwAxDmnAF4i7kQUDVP/8KTC4h9vZzYDJsUDSTh/gQh6KKSkXdgD9lRV5SPi3gEOb4ud4n1GDcAJIF0uYg1y/8zf3Nive3rfhN4HKmt1RWnuPS7nHhhDaGgIi0H9e6p9OpgO/OptQndurvT4zvqqxkkshCNouuQQO4YlCh8y5hTnSgysnCwNdDp9DN1AsMGHMfIBXAMcJCXh2Zz6xRBDDDHEEEMMMcQQQwwxxBBDDDHEEEMMMcQQQwwxxBBDDDHEEEMMMcQQQwwxxHBO4v8DZ2N5FQz7OWEAAAAASUVORK5CYII=" alt="Logo Esseigma POS AI" /></span> Esseigma POS AI</a>
         <p class="desc">Aplikasi POS digital untuk UMKM Indonesia. Kelola kasir, stok, cashflow, dan tagihan dalam satu genggaman — ditemani Esseigma AI.</p>
+        <p class="foot-kontak">Email: <a href="mailto:hello@esseigmaposai.com">hello@esseigmaposai.com</a><br>Malang, Jawa Timur, Indonesia</p>
       </div>
       <div>
         <h4>Produk</h4>
@@ -805,6 +1077,15 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#unduh">Unduh Aplikasi</a></li>
           <li><a href="mailto:hello@esseigmaposai.com?subject=Kontak%20Esseigma%20POS%20AI">Kontak</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#syarat">Syarat &amp; Ketentuan</a></li>
+          <li><a href="#refund">Kebijakan Refund</a></li>
+          <li><a href="#privasi">Kebijakan Privasi</a></li>
+          <li><a href="#hapus-akun">Hapus Akun</a></li>
         </ul>
       </div>
     </div>
